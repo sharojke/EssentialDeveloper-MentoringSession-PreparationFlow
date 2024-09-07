@@ -14,6 +14,9 @@
 		BBDDD77D2C8C54D700D6EF3F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BBDDD77C2C8C54D700D6EF3F /* Base */; };
 		BBDDD7852C8C5A2C00D6EF3F /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDDD7842C8C5A2C00D6EF3F /* UIViewController+Extensions.swift */; };
 		BBDDD78D2C8C5EAC00D6EF3F /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBDDD78C2C8C5EAC00D6EF3F /* Colors.xcassets */; };
+		BBF35D5F2C8CDF1D006AEC65 /* HeadphonesConnectionObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF35D5E2C8CDF1D006AEC65 /* HeadphonesConnectionObservable.swift */; };
+		BBF35D612C8CE130006AEC65 /* HeadphonesConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF35D602C8CE130006AEC65 /* HeadphonesConnectionManager.swift */; };
+		BBF35D632C8CE205006AEC65 /* HeadphonesConnectionSettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF35D622C8CE205006AEC65 /* HeadphonesConnectionSettable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		BBDDD77E2C8C54D700D6EF3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBDDD7842C8C5A2C00D6EF3F /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		BBDDD78C2C8C5EAC00D6EF3F /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		BBF35D5E2C8CDF1D006AEC65 /* HeadphonesConnectionObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadphonesConnectionObservable.swift; sourceTree = "<group>"; };
+		BBF35D602C8CE130006AEC65 /* HeadphonesConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadphonesConnectionManager.swift; sourceTree = "<group>"; };
+		BBF35D622C8CE205006AEC65 /* HeadphonesConnectionSettable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadphonesConnectionSettable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +66,7 @@
 			children = (
 				BBDDD7862C8C5DC600D6EF3F /* Application */,
 				BBDDD7872C8C5DE200D6EF3F /* UI */,
+				BBF35D5C2C8CDB3C006AEC65 /* Model */,
 			);
 			path = PreparationFlow;
 			sourceTree = "<group>";
@@ -116,6 +123,24 @@
 				BBDDD78C2C8C5EAC00D6EF3F /* Colors.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		BBF35D5C2C8CDB3C006AEC65 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BBF35D5D2C8CDF04006AEC65 /* Headphones Connection */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BBF35D5D2C8CDF04006AEC65 /* Headphones Connection */ = {
+			isa = PBXGroup;
+			children = (
+				BBF35D5E2C8CDF1D006AEC65 /* HeadphonesConnectionObservable.swift */,
+				BBF35D622C8CE205006AEC65 /* HeadphonesConnectionSettable.swift */,
+				BBF35D602C8CE130006AEC65 /* HeadphonesConnectionManager.swift */,
+			);
+			path = "Headphones Connection";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,9 +215,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBF35D632C8CE205006AEC65 /* HeadphonesConnectionSettable.swift in Sources */,
 				BBDDD7852C8C5A2C00D6EF3F /* UIViewController+Extensions.swift in Sources */,
 				BBDDD7752C8C54D400D6EF3F /* HeadphonesPreparationViewController.swift in Sources */,
 				BBDDD7712C8C54D400D6EF3F /* AppDelegate.swift in Sources */,
+				BBF35D5F2C8CDF1D006AEC65 /* HeadphonesConnectionObservable.swift in Sources */,
+				BBF35D612C8CE130006AEC65 /* HeadphonesConnectionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
