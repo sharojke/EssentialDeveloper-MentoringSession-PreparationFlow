@@ -1,8 +1,7 @@
 protocol PreparationInterruptionsManageable {
-    var onCurrentInterruption: (PreparationInterruption?) -> Void { get set }
-    
-    func add(observableInterruption interruption: PreparationInterruption)
-    func remove(observableInterruption interruption: PreparationInterruption)
-    func manage(triggeredInterruption interruption: PreparationInterruption)
-    func manage(satisfiedInterruption interruption: PreparationInterruption)
+    func add(subscription: @escaping (PreparationInterruption?) -> Void) async
+    func add(observableInterruption interruption: PreparationInterruption) async
+    func remove(observableInterruption interruption: PreparationInterruption) async
+    func manage(triggeredInterruption interruption: PreparationInterruption) async
+    func manage(satisfiedInterruption interruption: PreparationInterruption) async
 }

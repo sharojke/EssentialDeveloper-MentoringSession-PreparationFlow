@@ -1,8 +1,7 @@
 import Foundation
 
-final class PreparationInterruptionsManager: PreparationInterruptionsManageable {
-    var onCurrentInterruption: (PreparationInterruption?) -> Void = { _ in }
-    
+actor PreparationInterruptionsManager: PreparationInterruptionsManageable {
+    private var subscriptions = [(PreparationInterruption?) -> Void]()
     private var currentInterruption: PreparationInterruption?
     private var observableInterruptions: Set<PreparationInterruption>
     private var pendingInterruptions: Set<PreparationInterruption> = []
@@ -13,6 +12,10 @@ final class PreparationInterruptionsManager: PreparationInterruptionsManageable 
     ) {
         self.currentInterruption = currentInterruption
         self.observableInterruptions = observableInterruptions
+    }
+    
+    func add(subscription: @escaping (PreparationInterruption?) -> Void) {
+        subscriptions.append(subscription)
     }
     
     func add(observableInterruption interruption: PreparationInterruption) {
@@ -52,7 +55,7 @@ final class PreparationInterruptionsManager: PreparationInterruptionsManageable 
     
     private func set(currentInterruption: PreparationInterruption?) {
         self.currentInterruption = currentInterruption
-        onCurrentInterruption(currentInterruption)
+        subscriptions.forEach { $0(currentInterruption) }
     }
     
     private func nextPendingInterruption() -> PreparationInterruption? {
