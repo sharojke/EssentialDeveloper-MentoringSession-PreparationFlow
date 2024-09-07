@@ -1,8 +1,6 @@
-//
-//  LoudnessObservable.swift
-//  PreparationFlow
-//
-//  Created by Macbook Gray on 9/7/24.
-//
-
 import Foundation
+
+protocol LoudnessObservable {
+    func level() async -> LoudnessLevel
+    func add(subscription: @escaping (LoudnessLevel) -> Void) async
+}

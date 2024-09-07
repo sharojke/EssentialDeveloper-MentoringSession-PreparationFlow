@@ -20,6 +20,10 @@
 		BBF35D662C8CF0B0006AEC65 /* SystemVolumeObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF35D652C8CF0B0006AEC65 /* SystemVolumeObservable.swift */; };
 		BBF35D682C8CF106006AEC65 /* SystemVolumeSettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF35D672C8CF106006AEC65 /* SystemVolumeSettable.swift */; };
 		BBF35D6A2C8CF126006AEC65 /* SystemVolumeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF35D692C8CF126006AEC65 /* SystemVolumeManager.swift */; };
+		BBF35D6D2C8CF23A006AEC65 /* LoudnessObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF35D6C2C8CF23A006AEC65 /* LoudnessObservable.swift */; };
+		BBF35D6F2C8CF249006AEC65 /* LoudnessLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF35D6E2C8CF249006AEC65 /* LoudnessLevel.swift */; };
+		BBF35D712C8CF292006AEC65 /* LoudnessSettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF35D702C8CF292006AEC65 /* LoudnessSettable.swift */; };
+		BBF35D732C8CF2B4006AEC65 /* LoudnessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF35D722C8CF2B4006AEC65 /* LoudnessManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,10 @@
 		BBF35D652C8CF0B0006AEC65 /* SystemVolumeObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemVolumeObservable.swift; sourceTree = "<group>"; };
 		BBF35D672C8CF106006AEC65 /* SystemVolumeSettable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemVolumeSettable.swift; sourceTree = "<group>"; };
 		BBF35D692C8CF126006AEC65 /* SystemVolumeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemVolumeManager.swift; sourceTree = "<group>"; };
+		BBF35D6C2C8CF23A006AEC65 /* LoudnessObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoudnessObservable.swift; sourceTree = "<group>"; };
+		BBF35D6E2C8CF249006AEC65 /* LoudnessLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoudnessLevel.swift; sourceTree = "<group>"; };
+		BBF35D702C8CF292006AEC65 /* LoudnessSettable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoudnessSettable.swift; sourceTree = "<group>"; };
+		BBF35D722C8CF2B4006AEC65 /* LoudnessManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoudnessManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +144,7 @@
 			children = (
 				BBF35D5D2C8CDF04006AEC65 /* Headphones Connection */,
 				BBF35D642C8CF097006AEC65 /* System Volume */,
+				BBF35D6B2C8CF206006AEC65 /* Loudness */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -158,6 +167,17 @@
 				BBF35D692C8CF126006AEC65 /* SystemVolumeManager.swift */,
 			);
 			path = "System Volume";
+			sourceTree = "<group>";
+		};
+		BBF35D6B2C8CF206006AEC65 /* Loudness */ = {
+			isa = PBXGroup;
+			children = (
+				BBF35D6E2C8CF249006AEC65 /* LoudnessLevel.swift */,
+				BBF35D6C2C8CF23A006AEC65 /* LoudnessObservable.swift */,
+				BBF35D702C8CF292006AEC65 /* LoudnessSettable.swift */,
+				BBF35D722C8CF2B4006AEC65 /* LoudnessManager.swift */,
+			);
+			path = Loudness;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,11 +255,15 @@
 				BBF35D632C8CE205006AEC65 /* HeadphonesConnectionSettable.swift in Sources */,
 				BBDDD7852C8C5A2C00D6EF3F /* UIViewController+Extensions.swift in Sources */,
 				BBF35D662C8CF0B0006AEC65 /* SystemVolumeObservable.swift in Sources */,
+				BBF35D732C8CF2B4006AEC65 /* LoudnessManager.swift in Sources */,
 				BBF35D6A2C8CF126006AEC65 /* SystemVolumeManager.swift in Sources */,
 				BBDDD7752C8C54D400D6EF3F /* HeadphonesPreparationViewController.swift in Sources */,
 				BBDDD7712C8C54D400D6EF3F /* AppDelegate.swift in Sources */,
 				BBF35D5F2C8CDF1D006AEC65 /* HeadphonesConnectionObservable.swift in Sources */,
+				BBF35D6D2C8CF23A006AEC65 /* LoudnessObservable.swift in Sources */,
+				BBF35D6F2C8CF249006AEC65 /* LoudnessLevel.swift in Sources */,
 				BBF35D682C8CF106006AEC65 /* SystemVolumeSettable.swift in Sources */,
+				BBF35D712C8CF292006AEC65 /* LoudnessSettable.swift in Sources */,
 				BBF35D612C8CE130006AEC65 /* HeadphonesConnectionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
