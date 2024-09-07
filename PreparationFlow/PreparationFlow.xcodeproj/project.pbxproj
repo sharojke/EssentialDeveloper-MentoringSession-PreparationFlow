@@ -24,6 +24,9 @@
 		BBF35D6F2C8CF249006AEC65 /* LoudnessLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF35D6E2C8CF249006AEC65 /* LoudnessLevel.swift */; };
 		BBF35D712C8CF292006AEC65 /* LoudnessSettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF35D702C8CF292006AEC65 /* LoudnessSettable.swift */; };
 		BBF35D732C8CF2B4006AEC65 /* LoudnessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF35D722C8CF2B4006AEC65 /* LoudnessManager.swift */; };
+		BBF35D762C8CF3DA006AEC65 /* PreparationInterruption.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF35D752C8CF3DA006AEC65 /* PreparationInterruption.swift */; };
+		BBF35D782C8CF47C006AEC65 /* PreparationInterruptionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF35D772C8CF47C006AEC65 /* PreparationInterruptionsManager.swift */; };
+		BBF35D7A2C8CF4CB006AEC65 /* PreparationInterruptionsManageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF35D792C8CF4CB006AEC65 /* PreparationInterruptionsManageable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,9 @@
 		BBF35D6E2C8CF249006AEC65 /* LoudnessLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoudnessLevel.swift; sourceTree = "<group>"; };
 		BBF35D702C8CF292006AEC65 /* LoudnessSettable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoudnessSettable.swift; sourceTree = "<group>"; };
 		BBF35D722C8CF2B4006AEC65 /* LoudnessManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoudnessManager.swift; sourceTree = "<group>"; };
+		BBF35D752C8CF3DA006AEC65 /* PreparationInterruption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparationInterruption.swift; sourceTree = "<group>"; };
+		BBF35D772C8CF47C006AEC65 /* PreparationInterruptionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparationInterruptionsManager.swift; sourceTree = "<group>"; };
+		BBF35D792C8CF4CB006AEC65 /* PreparationInterruptionsManageable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparationInterruptionsManageable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +151,7 @@
 				BBF35D5D2C8CDF04006AEC65 /* Headphones Connection */,
 				BBF35D642C8CF097006AEC65 /* System Volume */,
 				BBF35D6B2C8CF206006AEC65 /* Loudness */,
+				BBF35D742C8CF3A8006AEC65 /* Preparation Interruption */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -178,6 +185,16 @@
 				BBF35D722C8CF2B4006AEC65 /* LoudnessManager.swift */,
 			);
 			path = Loudness;
+			sourceTree = "<group>";
+		};
+		BBF35D742C8CF3A8006AEC65 /* Preparation Interruption */ = {
+			isa = PBXGroup;
+			children = (
+				BBF35D752C8CF3DA006AEC65 /* PreparationInterruption.swift */,
+				BBF35D792C8CF4CB006AEC65 /* PreparationInterruptionsManageable.swift */,
+				BBF35D772C8CF47C006AEC65 /* PreparationInterruptionsManager.swift */,
+			);
+			path = "Preparation Interruption";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,8 +275,11 @@
 				BBF35D732C8CF2B4006AEC65 /* LoudnessManager.swift in Sources */,
 				BBF35D6A2C8CF126006AEC65 /* SystemVolumeManager.swift in Sources */,
 				BBDDD7752C8C54D400D6EF3F /* HeadphonesPreparationViewController.swift in Sources */,
+				BBF35D762C8CF3DA006AEC65 /* PreparationInterruption.swift in Sources */,
 				BBDDD7712C8C54D400D6EF3F /* AppDelegate.swift in Sources */,
+				BBF35D7A2C8CF4CB006AEC65 /* PreparationInterruptionsManageable.swift in Sources */,
 				BBF35D5F2C8CDF1D006AEC65 /* HeadphonesConnectionObservable.swift in Sources */,
+				BBF35D782C8CF47C006AEC65 /* PreparationInterruptionsManager.swift in Sources */,
 				BBF35D6D2C8CF23A006AEC65 /* LoudnessObservable.swift in Sources */,
 				BBF35D6F2C8CF249006AEC65 /* LoudnessLevel.swift in Sources */,
 				BBF35D682C8CF106006AEC65 /* SystemVolumeSettable.swift in Sources */,
