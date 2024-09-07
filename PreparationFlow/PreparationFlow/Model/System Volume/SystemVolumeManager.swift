@@ -4,7 +4,7 @@ actor SystemVolumeManager: SystemVolumeObservable, SystemVolumeSettable {
     private var _volume = Float.zero
     private var subscriptions = [(Float) -> Void]()
     
-    func volume() async -> Float {
+    func volume() -> Float {
         return _volume
     }
     
