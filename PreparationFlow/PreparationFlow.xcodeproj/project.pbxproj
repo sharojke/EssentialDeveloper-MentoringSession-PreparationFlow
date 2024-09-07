@@ -10,9 +10,10 @@
 		BBDDD7712C8C54D400D6EF3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDDD7702C8C54D400D6EF3F /* AppDelegate.swift */; };
 		BBDDD7752C8C54D400D6EF3F /* HeadphonesPreparationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDDD7742C8C54D400D6EF3F /* HeadphonesPreparationViewController.swift */; };
 		BBDDD7782C8C54D400D6EF3F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BBDDD7772C8C54D400D6EF3F /* Base */; };
-		BBDDD77A2C8C54D700D6EF3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBDDD7792C8C54D700D6EF3F /* Assets.xcassets */; };
+		BBDDD77A2C8C54D700D6EF3F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBDDD7792C8C54D700D6EF3F /* Images.xcassets */; };
 		BBDDD77D2C8C54D700D6EF3F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BBDDD77C2C8C54D700D6EF3F /* Base */; };
 		BBDDD7852C8C5A2C00D6EF3F /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDDD7842C8C5A2C00D6EF3F /* UIViewController+Extensions.swift */; };
+		BBDDD78D2C8C5EAC00D6EF3F /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBDDD78C2C8C5EAC00D6EF3F /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +21,11 @@
 		BBDDD7702C8C54D400D6EF3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBDDD7742C8C54D400D6EF3F /* HeadphonesPreparationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadphonesPreparationViewController.swift; sourceTree = "<group>"; };
 		BBDDD7772C8C54D400D6EF3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/HeadphonesPreparationViewController.storyboard; sourceTree = "<group>"; };
-		BBDDD7792C8C54D700D6EF3F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BBDDD7792C8C54D700D6EF3F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BBDDD77C2C8C54D700D6EF3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BBDDD77E2C8C54D700D6EF3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBDDD7842C8C5A2C00D6EF3F /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		BBDDD78C2C8C5EAC00D6EF3F /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,64 @@
 		BBDDD76F2C8C54D400D6EF3F /* PreparationFlow */ = {
 			isa = PBXGroup;
 			children = (
-				BBDDD7702C8C54D400D6EF3F /* AppDelegate.swift */,
-				BBDDD7842C8C5A2C00D6EF3F /* UIViewController+Extensions.swift */,
-				BBDDD7742C8C54D400D6EF3F /* HeadphonesPreparationViewController.swift */,
-				BBDDD7762C8C54D400D6EF3F /* HeadphonesPreparationViewController.storyboard */,
-				BBDDD7792C8C54D700D6EF3F /* Assets.xcassets */,
-				BBDDD77B2C8C54D700D6EF3F /* LaunchScreen.storyboard */,
-				BBDDD77E2C8C54D700D6EF3F /* Info.plist */,
+				BBDDD7862C8C5DC600D6EF3F /* Application */,
+				BBDDD7872C8C5DE200D6EF3F /* UI */,
 			);
 			path = PreparationFlow;
+			sourceTree = "<group>";
+		};
+		BBDDD7862C8C5DC600D6EF3F /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				BBDDD77B2C8C54D700D6EF3F /* LaunchScreen.storyboard */,
+				BBDDD77E2C8C54D700D6EF3F /* Info.plist */,
+				BBDDD7702C8C54D400D6EF3F /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		BBDDD7872C8C5DE200D6EF3F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				BBDDD78B2C8C5E2B00D6EF3F /* Resources */,
+				BBDDD7882C8C5DF000D6EF3F /* Extensions */,
+				BBDDD7892C8C5E0100D6EF3F /* Scenes */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		BBDDD7882C8C5DF000D6EF3F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BBDDD7842C8C5A2C00D6EF3F /* UIViewController+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BBDDD7892C8C5E0100D6EF3F /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				BBDDD78A2C8C5E1400D6EF3F /* Headphones Preparation */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		BBDDD78A2C8C5E1400D6EF3F /* Headphones Preparation */ = {
+			isa = PBXGroup;
+			children = (
+				BBDDD7742C8C54D400D6EF3F /* HeadphonesPreparationViewController.swift */,
+				BBDDD7762C8C54D400D6EF3F /* HeadphonesPreparationViewController.storyboard */,
+			);
+			path = "Headphones Preparation";
+			sourceTree = "<group>";
+		};
+		BBDDD78B2C8C5E2B00D6EF3F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BBDDD7792C8C54D700D6EF3F /* Images.xcassets */,
+				BBDDD78C2C8C5EAC00D6EF3F /* Colors.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,7 +176,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBDDD77A2C8C54D700D6EF3F /* Assets.xcassets in Resources */,
+				BBDDD77A2C8C54D700D6EF3F /* Images.xcassets in Resources */,
+				BBDDD78D2C8C5EAC00D6EF3F /* Colors.xcassets in Resources */,
 				BBDDD77D2C8C54D700D6EF3F /* Base in Resources */,
 				BBDDD7782C8C54D400D6EF3F /* Base in Resources */,
 			);
@@ -294,7 +346,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KN3UG3D7KC;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PreparationFlow/Info.plist;
+				INFOPLIST_FILE = PreparationFlow/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -324,7 +376,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KN3UG3D7KC;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PreparationFlow/Info.plist;
+				INFOPLIST_FILE = PreparationFlow/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
