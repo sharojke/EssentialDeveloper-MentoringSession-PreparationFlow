@@ -27,6 +27,7 @@
 		BBF35D762C8CF3DA006AEC65 /* PreparationInterruption.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF35D752C8CF3DA006AEC65 /* PreparationInterruption.swift */; };
 		BBF35D782C8CF47C006AEC65 /* PreparationInterruptionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF35D772C8CF47C006AEC65 /* PreparationInterruptionsManager.swift */; };
 		BBF35D7A2C8CF4CB006AEC65 /* PreparationInterruptionsManageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF35D792C8CF4CB006AEC65 /* PreparationInterruptionsManageable.swift */; };
+		BBF35D7F2C8DE202006AEC65 /* MicrophonePermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF35D7E2C8DE202006AEC65 /* MicrophonePermissionManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		BBF35D752C8CF3DA006AEC65 /* PreparationInterruption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparationInterruption.swift; sourceTree = "<group>"; };
 		BBF35D772C8CF47C006AEC65 /* PreparationInterruptionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparationInterruptionsManager.swift; sourceTree = "<group>"; };
 		BBF35D792C8CF4CB006AEC65 /* PreparationInterruptionsManageable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparationInterruptionsManageable.swift; sourceTree = "<group>"; };
+		BBF35D7E2C8DE202006AEC65 /* MicrophonePermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophonePermissionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 		BBF35D5C2C8CDB3C006AEC65 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BBF35D7D2C8DE1B3006AEC65 /* Microphone Permission */,
 				BBF35D5D2C8CDF04006AEC65 /* Headphones Connection */,
 				BBF35D642C8CF097006AEC65 /* System Volume */,
 				BBF35D6B2C8CF206006AEC65 /* Loudness */,
@@ -195,6 +198,14 @@
 				BBF35D772C8CF47C006AEC65 /* PreparationInterruptionsManager.swift */,
 			);
 			path = "Preparation Interruption";
+			sourceTree = "<group>";
+		};
+		BBF35D7D2C8DE1B3006AEC65 /* Microphone Permission */ = {
+			isa = PBXGroup;
+			children = (
+				BBF35D7E2C8DE202006AEC65 /* MicrophonePermissionManager.swift */,
+			);
+			path = "Microphone Permission";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,6 +290,7 @@
 				BBDDD7712C8C54D400D6EF3F /* AppDelegate.swift in Sources */,
 				BBF35D7A2C8CF4CB006AEC65 /* PreparationInterruptionsManageable.swift in Sources */,
 				BBF35D5F2C8CDF1D006AEC65 /* HeadphonesConnectionObservable.swift in Sources */,
+				BBF35D7F2C8DE202006AEC65 /* MicrophonePermissionManager.swift in Sources */,
 				BBF35D782C8CF47C006AEC65 /* PreparationInterruptionsManager.swift in Sources */,
 				BBF35D6D2C8CF23A006AEC65 /* LoudnessObservable.swift in Sources */,
 				BBF35D6F2C8CF249006AEC65 /* LoudnessLevel.swift in Sources */,
