@@ -1,13 +1,13 @@
 import Foundation
 
-final class MicrophonePermissionManager {
-    static let shared = MicrophonePermissionManager()
+final class MicrophonePermissionManager {    
+    private var _isPermissionAllowed = false
     
-    private(set) var isPermissionAllowed = false
-    
-    private init() {}
+    func isPermissionAllowed() -> Bool {
+        return _isPermissionAllowed
+    }
     
     func allowPermission() {
-        isPermissionAllowed = true
+        _isPermissionAllowed = true
     }
 }

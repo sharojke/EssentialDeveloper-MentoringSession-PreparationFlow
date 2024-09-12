@@ -4,9 +4,9 @@ actor LoudnessManager: LoudnessObservable, LoudnessSettable {
     private var _level = LoudnessLevel.loud
     private var subscriptions = [(LoudnessLevel) -> Void]()
     
-    init() {
+    init(isMicrophonePermissionAllowed: () -> Bool) {
         assert(
-            MicrophonePermissionManager.shared.isPermissionAllowed,
+            isMicrophonePermissionAllowed,
             "Microphone permission has to be allowed before calling the initializer"
         )
     }

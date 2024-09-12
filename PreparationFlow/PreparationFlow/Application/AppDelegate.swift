@@ -4,44 +4,31 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
-    lazy var headphonesConnectionManager: HeadphonesConnectionObservable & HeadphonesConnectionSettable = {
+    private lazy var microphonePermissionManager = MicrophonePermissionManager()
+    
+    private lazy var headphonesConnectionManager: HeadphonesConnectionObservable & HeadphonesConnectionSettable = {
         return HeadphonesConnectionManager()
     }()
     
-    lazy var systemVolumeManager: SystemVolumeObservable & SystemVolumeSettable = {
+    private lazy var systemVolumeManager: SystemVolumeObservable & SystemVolumeSettable = {
         return SystemVolumeManager()
     }()
     
-    lazy var loudnessManager: LoudnessObservable & LoudnessSettable = {
-       return LoudnessManager()
+    private lazy var loudnessManager: LoudnessObservable & LoudnessSettable = {
+        return LoudnessManager(isMicrophonePermissionAllowed: microphonePermissionManager.isPermissionAllowed)
     }()
     
-    lazy var permissionControlsContainerView: PermissionControlsContainerView = {
+    private lazy var permissionControlsContainerView: PermissionControlsContainerView = {
         let inputs = PreparationInterruption.allCases.map { interruption in
-            switch interruption {
+            return switch interruption {
             case .headphones:
-                let icon = UIImage(systemName: "headphones")!
-                return PermissionControlViewInput(
-                    icon: icon,
-                    onTrigger: {},
-                    onSatisfy: {}
-                )
+                headphonesPermissionControlViewInput()
                 
             case .loudness:
-                let icon = UIImage(systemName: "iphone.gen2.radiowaves.left.and.right")!
-                return PermissionControlViewInput(
-                    icon: icon,
-                    onTrigger: {},
-                    onSatisfy: {}
-                )
+                loudnessPermissionControlViewInput()
                 
             case .systemVolume:
-                let icon = UIImage(systemName: "speaker.wave.2.fill")!
-                return PermissionControlViewInput(
-                    icon: icon,
-                    onTrigger: {},
-                    onSatisfy: {}
-                )
+                systemVolumePermissionControlViewInput()
             }
         }
         
@@ -55,8 +42,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         configureWindow()
         return true
     }
-    
-    private func configureWindow() {
+}
+
+// MARK: - Window configuration
+
+private extension AppDelegate {
+    func configureWindow() {
         let window = UIWindow()
         self.window = window
         window.rootViewController = HeadphonesPreparationViewController.instantiate { coder in
@@ -66,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         addPermissionControlsContainerView(to: window)
     }
     
-    private func addPermissionControlsContainerView(to window: UIWindow) {
+    func addPermissionControlsContainerView(to window: UIWindow) {
         window.addSubview(permissionControlsContainerView)
         permissionControlsContainerView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -87,3 +78,58 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+// MARK: - PermissionControlView inputs
+
+private extension AppDelegate {
+    func headphonesPermissionControlViewInput() -> PermissionControlViewInput {
+        let icon = UIImage(systemName: "headphones")!
+        return PermissionControlViewInput(
+            icon: icon,
+            onTrigger: { [headphonesConnectionManager] in
+                Task {
+                    await headphonesConnectionManager.setConnected(false)
+                }
+            },
+            onSatisfy: { [headphonesConnectionManager] in
+                Task {
+                    await headphonesConnectionManager.setConnected(true)
+                }
+            }
+        )
+    }
+    
+    func loudnessPermissionControlViewInput() -> PermissionControlViewInput {
+        let icon = UIImage(systemName: "iphone.gen2.radiowaves.left.and.right")!
+        return PermissionControlViewInput(
+            icon: icon,
+            onTrigger: { [loudnessManager] in
+                Task {
+                    await loudnessManager.set(level: .loud)
+                }
+            },
+            onSatisfy: { [loudnessManager] in
+                Task {
+                    await loudnessManager.set(level: .quiet)
+                }
+            }
+        )
+    }
+    
+    func systemVolumePermissionControlViewInput() -> PermissionControlViewInput {
+        let icon = UIImage(systemName: "speaker.wave.2.fill")!
+        return PermissionControlViewInput(
+            icon: icon,
+            onTrigger: { [systemVolumeManager] in
+                Task {
+                    let random: Float = Float((0...1).randomElement()!)
+                    await systemVolumeManager.set(volume: random)
+                }
+            },
+            onSatisfy: { [systemVolumeManager] in
+                Task {
+                    await systemVolumeManager.set(volume: 0.5)
+                }
+            }
+        )
+    }
+}
