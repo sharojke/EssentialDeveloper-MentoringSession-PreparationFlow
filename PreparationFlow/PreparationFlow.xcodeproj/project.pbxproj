@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BBB516FE2C98B68800A080BF /* HeadphonesPreparationComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB516FD2C98B68800A080BF /* HeadphonesPreparationComposer.swift */; };
+		BBB517012C98C57700A080BF /* PermissionControlsContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB517002C98C57700A080BF /* PermissionControlsContainerFactory.swift */; };
 		BBDDD7712C8C54D400D6EF3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDDD7702C8C54D400D6EF3F /* AppDelegate.swift */; };
 		BBDDD7752C8C54D400D6EF3F /* HeadphonesPreparationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDDD7742C8C54D400D6EF3F /* HeadphonesPreparationViewController.swift */; };
-		BBDDD7782C8C54D400D6EF3F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BBDDD7772C8C54D400D6EF3F /* Base */; };
 		BBDDD77A2C8C54D700D6EF3F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBDDD7792C8C54D700D6EF3F /* Images.xcassets */; };
 		BBDDD77D2C8C54D700D6EF3F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BBDDD77C2C8C54D700D6EF3F /* Base */; };
 		BBDDD7852C8C5A2C00D6EF3F /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDDD7842C8C5A2C00D6EF3F /* UIViewController+Extensions.swift */; };
@@ -39,10 +40,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BBB516FD2C98B68800A080BF /* HeadphonesPreparationComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadphonesPreparationComposer.swift; sourceTree = "<group>"; };
+		BBB517002C98C57700A080BF /* PermissionControlsContainerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionControlsContainerFactory.swift; sourceTree = "<group>"; };
 		BBDDD76D2C8C54D400D6EF3F /* PreparationFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PreparationFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBDDD7702C8C54D400D6EF3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBDDD7742C8C54D400D6EF3F /* HeadphonesPreparationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadphonesPreparationViewController.swift; sourceTree = "<group>"; };
-		BBDDD7772C8C54D400D6EF3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/HeadphonesPreparationViewController.storyboard; sourceTree = "<group>"; };
 		BBDDD7792C8C54D700D6EF3F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BBDDD77C2C8C54D700D6EF3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BBDDD77E2C8C54D700D6EF3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -83,6 +85,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BBB516FF2C98C55D00A080BF /* Permission Controls Container */ = {
+			isa = PBXGroup;
+			children = (
+				BBF35D952C8E09DC006AEC65 /* PermissionControlsContainerView.swift */,
+				BBB517002C98C57700A080BF /* PermissionControlsContainerFactory.swift */,
+			);
+			path = "Permission Controls Container";
+			sourceTree = "<group>";
+		};
 		BBDDD7642C8C54D400D6EF3F = {
 			isa = PBXGroup;
 			children = (
@@ -152,8 +163,8 @@
 		BBDDD78A2C8C5E1400D6EF3F /* Headphones Preparation */ = {
 			isa = PBXGroup;
 			children = (
+				BBB516FD2C98B68800A080BF /* HeadphonesPreparationComposer.swift */,
 				BBDDD7742C8C54D400D6EF3F /* HeadphonesPreparationViewController.swift */,
-				BBDDD7762C8C54D400D6EF3F /* HeadphonesPreparationViewController.storyboard */,
 			);
 			path = "Headphones Preparation";
 			sourceTree = "<group>";
@@ -240,8 +251,8 @@
 		BBF35D812C8DFC2F006AEC65 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BBB516FF2C98C55D00A080BF /* Permission Controls Container */,
 				BBF35D862C8DFFB0006AEC65 /* Permission Control */,
-				BBF35D952C8E09DC006AEC65 /* PermissionControlsContainerView.swift */,
 				BBF35D822C8DFC4A006AEC65 /* NibView.swift */,
 			);
 			path = Views;
@@ -342,7 +353,6 @@
 				BBF35D8A2C8DFFDC006AEC65 /* PermissionControlView.xib in Resources */,
 				BBDDD78D2C8C5EAC00D6EF3F /* Colors.xcassets in Resources */,
 				BBDDD77D2C8C54D700D6EF3F /* Base in Resources */,
-				BBDDD7782C8C54D400D6EF3F /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,11 +372,13 @@
 				BBF35D762C8CF3DA006AEC65 /* PreparationInterruption.swift in Sources */,
 				BBF35D9B2C8E10A6006AEC65 /* Xibable.swift in Sources */,
 				BBF35D8D2C8E0182006AEC65 /* ReactiveButton.swift in Sources */,
+				BBB516FE2C98B68800A080BF /* HeadphonesPreparationComposer.swift in Sources */,
 				BBF35D962C8E09DC006AEC65 /* PermissionControlsContainerView.swift in Sources */,
 				BBDDD7712C8C54D400D6EF3F /* AppDelegate.swift in Sources */,
 				BBF35D7A2C8CF4CB006AEC65 /* PreparationInterruptionsManageable.swift in Sources */,
 				BBF35D5F2C8CDF1D006AEC65 /* HeadphonesConnectionObservable.swift in Sources */,
 				BBF35D7F2C8DE202006AEC65 /* MicrophonePermissionManager.swift in Sources */,
+				BBB517012C98C57700A080BF /* PermissionControlsContainerFactory.swift in Sources */,
 				BBF35D782C8CF47C006AEC65 /* PreparationInterruptionsManager.swift in Sources */,
 				BBF35D852C8DFC92006AEC65 /* UIView+Extensions.swift in Sources */,
 				BBF35D6D2C8CF23A006AEC65 /* LoudnessObservable.swift in Sources */,
@@ -383,14 +395,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		BBDDD7762C8C54D400D6EF3F /* HeadphonesPreparationViewController.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BBDDD7772C8C54D400D6EF3F /* Base */,
-			);
-			name = HeadphonesPreparationViewController.storyboard;
-			sourceTree = "<group>";
-		};
 		BBDDD77B2C8C54D700D6EF3F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

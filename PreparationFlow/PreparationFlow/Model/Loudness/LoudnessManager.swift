@@ -1,14 +1,17 @@
 import Foundation
 
-actor LoudnessManager: LoudnessObservable, LoudnessSettable {
+typealias LoudnessManageable = LoudnessObservable & LoudnessSettable
+
+actor LoudnessManager: LoudnessManageable {
     private var _level = LoudnessLevel.loud
     private var subscriptions = [(LoudnessLevel) -> Void]()
     
     init(isMicrophonePermissionAllowed: () -> Bool) {
-        assert(
-            isMicrophonePermissionAllowed,
-            "Microphone permission has to be allowed before calling the initializer"
-        )
+        // TODO: Uncomment this
+//        assert(
+//            isMicrophonePermissionAllowed(),
+//            "Microphone permission has to be allowed before calling the initializer"
+//        )
     }
     
     func level() -> LoudnessLevel {

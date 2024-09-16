@@ -1,6 +1,8 @@
 import Foundation
 
-actor SystemVolumeManager: SystemVolumeObservable, SystemVolumeSettable {
+typealias SystemVolumeManageable = SystemVolumeObservable & SystemVolumeSettable
+
+actor SystemVolumeManager: SystemVolumeManageable {
     private var _volume = Float.zero
     private var subscriptions = [(Float) -> Void]()
     

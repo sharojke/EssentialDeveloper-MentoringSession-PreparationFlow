@@ -1,6 +1,8 @@
 import Foundation
 
-actor HeadphonesConnectionManager: HeadphonesConnectionObservable, HeadphonesConnectionSettable {
+typealias HeadphonesConnectionManageable = HeadphonesConnectionObservable & HeadphonesConnectionSettable
+
+actor HeadphonesConnectionManager: HeadphonesConnectionManageable {
     private var _isConnected = false
     private var subscriptions = [(Bool) -> Void]()
     
