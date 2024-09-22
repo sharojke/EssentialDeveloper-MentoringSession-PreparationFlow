@@ -55,7 +55,7 @@ private extension AppDelegate {
                 permissionControlsContainerView.centerXAnchor.constraint(equalTo: window.centerXAnchor),
                 permissionControlsContainerView.topAnchor.constraint(
                     equalTo: window.topAnchor,
-                    constant: 50
+                    constant: 100
                 ),
                 permissionControlsContainerView.heightAnchor.constraint(equalToConstant: 100)
             ]
