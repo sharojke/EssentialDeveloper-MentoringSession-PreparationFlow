@@ -1,11 +1,11 @@
 import UIKit
 
-enum HeadphonesPreparationConnectionImageProvider {
+enum HeadphonesPreparationConnectionTitleProvider {
     static func provide(
         isConnected: Bool,
-        connected: UIImage = UIImage(systemName: "headphones")!,
-        disconnected: UIImage = UIImage(systemName: "iphone.gen2.radiowaves.left.and.right")!
-    ) -> UIImage {
+        connected: String = "Headphones are\nCONNECTED",
+        disconnected: String = "Headphones are\nNOT CONNECTED"
+    ) -> String {
         return isConnected ? connected : disconnected
     }
 }
@@ -28,7 +28,7 @@ enum HeadphonesPreparationComposer {
         _ controller: HeadphonesPreparationViewController?,
         connected isConnected: Bool
     ) {
-        let image = HeadphonesPreparationConnectionImageProvider.provide(isConnected: isConnected)
-        controller?.setConnected(isConnected, image: image)
+        let title = HeadphonesPreparationConnectionTitleProvider.provide(isConnected: isConnected)
+        controller?.setConnected(isConnected, title: title)
     }
 }

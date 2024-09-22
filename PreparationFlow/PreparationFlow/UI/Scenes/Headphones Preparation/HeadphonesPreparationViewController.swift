@@ -12,10 +12,14 @@ final class HeadphonesPreparationViewController: UIViewController {
         return button
     }()
     
-    private let headphonesConnectionImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
+    private let headphonesConnectionLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.numberOfLines = .zero
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     private var safeAreaLayoutGuide: UILayoutGuide {
@@ -28,18 +32,18 @@ final class HeadphonesPreparationViewController: UIViewController {
         configureUI()
     }
     
-    func setConnected(_ isConnected: Bool, image: UIImage) {
+    func setConnected(_ isConnected: Bool, title: String) {
         // TODO: Move the threading logic to the composer
-        Task { @MainActor in
-            nextButton.isEnabled = isConnected
-            headphonesConnectionImageView.image = image
+        Task { @MainActor [weak self] in
+            self?.nextButton.isEnabled = isConnected
+            self?.headphonesConnectionLabel.text = title
         }
     }
     
     private func configureUI() {
         view.backgroundColor = .white
         configureNextButton()
-        configureHeadphonesConnectionImageView()
+        configureHeadphonesConnectionLabel()
         
     }
     
@@ -57,20 +61,14 @@ final class HeadphonesPreparationViewController: UIViewController {
         )
     }
     
-    private func configureHeadphonesConnectionImageView() {
-        view.addSubview(headphonesConnectionImageView)
+    private func configureHeadphonesConnectionLabel() {
+        view.addSubview(headphonesConnectionLabel)
         
         NSLayoutConstraint.activate(
             [
-                headphonesConnectionImageView.bottomAnchor.constraint(
-                    equalTo: nextButton.topAnchor,
-                    constant: -24
-                ),
-                headphonesConnectionImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                headphonesConnectionImageView.heightAnchor.constraint(equalToConstant: 64),
-                headphonesConnectionImageView.widthAnchor.constraint(
-                    equalTo: headphonesConnectionImageView.heightAnchor
-                )
+                headphonesConnectionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                headphonesConnectionLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+                headphonesConnectionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16)
             ]
         )
     }
