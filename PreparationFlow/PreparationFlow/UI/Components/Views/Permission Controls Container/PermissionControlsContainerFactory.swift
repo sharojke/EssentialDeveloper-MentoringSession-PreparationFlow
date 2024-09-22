@@ -6,7 +6,7 @@ enum PermissionControlsContainerComposer {
         loudnessManager: LoudnessManageable,
         systemVolumeManager: SystemVolumeManageable
     ) -> PermissionControlsContainerView {
-        let inputs = PreparationInterruption.allCases.map { interruption in
+        let inputs = PreparationInterruption.ordered.map { interruption in
             return switch interruption {
             case .headphones:
                 headphonesPermissionControlViewInput(headphonesConnectionManager)

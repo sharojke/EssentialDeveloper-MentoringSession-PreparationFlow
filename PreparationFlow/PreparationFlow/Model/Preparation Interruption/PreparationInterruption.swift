@@ -1,7 +1,11 @@
-enum PreparationInterruption: Equatable, CaseIterable {
+enum PreparationInterruption: Equatable {
     case headphones
     case systemVolume
     case loudness
+    
+    static var ordered: [Self] {
+        return [.headphones, .loudness, .systemVolume]
+    }
     
     var priority: Int {
         return switch self {
