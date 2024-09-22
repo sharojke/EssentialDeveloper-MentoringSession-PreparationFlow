@@ -17,8 +17,11 @@ enum LoudnessPreparationValuesProvider {
 }
 
 enum LoudnessPreparationComposer {
-    static func scene(observer: LoudnessObservable) -> LoudnessPreparationViewController {
-        let controller = LoudnessPreparationViewController()
+    static func scene(
+        observer: LoudnessObservable,
+        onNextButtonTap: @escaping () -> Void
+    ) -> LoudnessPreparationViewController {
+        let controller = LoudnessPreparationViewController(onNextButtonTap: onNextButtonTap)
         
         Task {
             await set(controller, level: observer.level())

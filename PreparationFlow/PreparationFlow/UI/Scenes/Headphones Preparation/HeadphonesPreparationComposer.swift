@@ -11,8 +11,11 @@ enum HeadphonesPreparationConnectionTitleProvider {
 }
 
 enum HeadphonesPreparationComposer {
-    static func scene(observer: HeadphonesConnectionObservable) -> HeadphonesPreparationViewController {
-        let controller = HeadphonesPreparationViewController()
+    static func scene(
+        observer: HeadphonesConnectionObservable,
+        onNextButtonTap: @escaping () -> Void
+    ) -> HeadphonesPreparationViewController {
+        let controller = HeadphonesPreparationViewController(onNextButtonTap: onNextButtonTap)
         
         Task {
             await set(controller, connected: observer.isConnected())

@@ -1,6 +1,8 @@
 import UIKit
 
 final class HeadphonesPreparationViewController: UIViewController {
+    private let onNextButtonTap: () -> Void
+    
     private let nextButton: ReactiveButton = {
         let button = ReactiveButton()
         button.setTitle("Next", for: .normal)
@@ -24,6 +26,15 @@ final class HeadphonesPreparationViewController: UIViewController {
     
     private var safeAreaLayoutGuide: UILayoutGuide {
         return view.safeAreaLayoutGuide
+    }
+    
+    init(onNextButtonTap: @escaping () -> Void) {
+        self.onNextButtonTap = onNextButtonTap
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
@@ -74,5 +85,6 @@ final class HeadphonesPreparationViewController: UIViewController {
     }
     
     @objc private func nextButtonTap() {
+        onNextButtonTap()
     }
 }

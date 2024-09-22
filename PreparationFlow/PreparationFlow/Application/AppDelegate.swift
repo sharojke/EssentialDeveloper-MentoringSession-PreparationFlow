@@ -4,7 +4,8 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
-    private lazy var microphonePermissionManager = MicrophonePermissionManager()    
+    private var preparationFlow: PreparationFlow!
+    private lazy var microphonePermissionManager = MicrophonePermissionManager()
     private lazy var headphonesConnectionManager: HeadphonesConnectionManageable = HeadphonesConnectionManager()
     private lazy var systemVolumeManager: SystemVolumeManageable = SystemVolumeManager()
     private lazy var loudnessManager: LoudnessManageable = LoudnessManager(
@@ -15,7 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        configureWindow()
+        let navigationController = UINavigationController()
+        configureWindow(rootViewController: navigationController)
+        preparationFlow = preparationFlow(navigationController: navigationController)
+        preparationFlow.start()
         return true
     }
 }
@@ -23,12 +27,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 // MARK: - Window configuration
 
 private extension AppDelegate {
-    func configureWindow() {
+    func configureWindow(rootViewController: UIViewController) {
         let window = UIWindow()
         self.window = window
         
-        let rootController = HeadphonesPreparationComposer.scene(observer: headphonesConnectionManager)
-        window.rootViewController = rootController
+        window.rootViewController = rootViewController
         window.makeKeyAndVisible()
         addPermissionControlsContainerView(to: window)
     }
@@ -56,6 +59,36 @@ private extension AppDelegate {
                 ),
                 permissionControlsContainerView.heightAnchor.constraint(equalToConstant: 100)
             ]
+        )
+    }
+}
+
+// MARK: - Preparation Flow
+
+private extension AppDelegate {
+    func preparationFlow(navigationController: UINavigationController) -> PreparationFlow {
+        return PreparationFlow(
+            navigationController: navigationController,
+            headphonesPreparationViewController: headphonesPreparationViewController,
+            loudnessPreparationViewController: loudnessPreparationViewController
+        )
+    }
+    
+    func headphonesPreparationViewController(
+        onNextButtonTap: @escaping () -> Void
+    ) -> HeadphonesPreparationViewController {
+        return HeadphonesPreparationComposer.scene(
+            observer: headphonesConnectionManager,
+            onNextButtonTap: onNextButtonTap
+        )
+    }
+    
+    func loudnessPreparationViewController(
+        onNextButtonTap: @escaping () -> Void
+    ) -> LoudnessPreparationViewController {
+        return LoudnessPreparationComposer.scene(
+            observer: loudnessManager,
+            onNextButtonTap: onNextButtonTap
         )
     }
 }
