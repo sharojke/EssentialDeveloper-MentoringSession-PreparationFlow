@@ -11,6 +11,7 @@
 		BBB517012C98C57700A080BF /* PermissionControlsContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB517002C98C57700A080BF /* PermissionControlsContainerFactory.swift */; };
 		BBB96BAB2CA882D000EB20C0 /* SystemVolumePreparationComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB96BAA2CA882D000EB20C0 /* SystemVolumePreparationComposer.swift */; };
 		BBB96BAD2CA8834B00EB20C0 /* SystemVolumePreparationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB96BAC2CA8834B00EB20C0 /* SystemVolumePreparationViewController.swift */; };
+		BBB96BB02CA88BC000EB20C0 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB96BAF2CA88BC000EB20C0 /* TestViewController.swift */; };
 		BBC21FE32CA0AF90005901E8 /* LoudnessPreparationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC21FE22CA0AF90005901E8 /* LoudnessPreparationViewController.swift */; };
 		BBC21FE52CA0B02D005901E8 /* LoudnessPreparationComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC21FE42CA0B02D005901E8 /* LoudnessPreparationComposer.swift */; };
 		BBC21FE82CA0B77A005901E8 /* PreparationFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC21FE72CA0B77A005901E8 /* PreparationFlow.swift */; };
@@ -49,6 +50,7 @@
 		BBB517002C98C57700A080BF /* PermissionControlsContainerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionControlsContainerFactory.swift; sourceTree = "<group>"; };
 		BBB96BAA2CA882D000EB20C0 /* SystemVolumePreparationComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemVolumePreparationComposer.swift; sourceTree = "<group>"; };
 		BBB96BAC2CA8834B00EB20C0 /* SystemVolumePreparationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemVolumePreparationViewController.swift; sourceTree = "<group>"; };
+		BBB96BAF2CA88BC000EB20C0 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		BBC21FE22CA0AF90005901E8 /* LoudnessPreparationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoudnessPreparationViewController.swift; sourceTree = "<group>"; };
 		BBC21FE42CA0B02D005901E8 /* LoudnessPreparationComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoudnessPreparationComposer.swift; sourceTree = "<group>"; };
 		BBC21FE72CA0B77A005901E8 /* PreparationFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparationFlow.swift; sourceTree = "<group>"; };
@@ -111,6 +113,14 @@
 				BBB96BAC2CA8834B00EB20C0 /* SystemVolumePreparationViewController.swift */,
 			);
 			path = "System Volume Preparation";
+			sourceTree = "<group>";
+		};
+		BBB96BAE2CA8898C00EB20C0 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				BBB96BAF2CA88BC000EB20C0 /* TestViewController.swift */,
+			);
+			path = Test;
 			sourceTree = "<group>";
 		};
 		BBC21FE12CA0AF6A005901E8 /* Loudness Preparation */ = {
@@ -186,6 +196,7 @@
 				BBDDD78A2C8C5E1400D6EF3F /* Headphones Preparation */,
 				BBC21FE12CA0AF6A005901E8 /* Loudness Preparation */,
 				BBB96BA92CA8828A00EB20C0 /* System Volume Preparation */,
+				BBB96BAE2CA8898C00EB20C0 /* Test */,
 				BBC21FE72CA0B77A005901E8 /* PreparationFlow.swift */,
 			);
 			path = Scenes;
@@ -412,6 +423,7 @@
 				BBB517012C98C57700A080BF /* PermissionControlsContainerFactory.swift in Sources */,
 				BBF35D782C8CF47C006AEC65 /* PreparationInterruptionsManager.swift in Sources */,
 				BBF35D852C8DFC92006AEC65 /* UIView+Extensions.swift in Sources */,
+				BBB96BB02CA88BC000EB20C0 /* TestViewController.swift in Sources */,
 				BBC21FE52CA0B02D005901E8 /* LoudnessPreparationComposer.swift in Sources */,
 				BBF35D6D2C8CF23A006AEC65 /* LoudnessObservable.swift in Sources */,
 				BBF35D6F2C8CF249006AEC65 /* LoudnessLevel.swift in Sources */,

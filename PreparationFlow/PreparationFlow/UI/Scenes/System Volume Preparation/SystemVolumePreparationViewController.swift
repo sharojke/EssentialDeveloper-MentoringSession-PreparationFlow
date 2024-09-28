@@ -54,7 +54,7 @@ final class SystemVolumePreparationViewController: UIViewController {
     private func configureUI() {
         view.backgroundColor = .white
         configureNextButton()
-        configureLoudnessLabel()
+        configureSystemVolumeLabel()
         
     }
     
@@ -72,7 +72,7 @@ final class SystemVolumePreparationViewController: UIViewController {
         )
     }
     
-    private func configureLoudnessLabel() {
+    private func configureSystemVolumeLabel() {
         view.addSubview(systemVolumeLabel)
         
         NSLayoutConstraint.activate(

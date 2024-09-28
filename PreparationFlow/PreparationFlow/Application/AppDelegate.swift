@@ -71,7 +71,8 @@ private extension AppDelegate {
             navigationController: navigationController,
             headphonesPreparationViewController: headphonesPreparationViewController,
             loudnessPreparationViewController: loudnessPreparationViewController, 
-            systemVolumePreparationViewController: systemVolumePreparationViewController
+            systemVolumePreparationViewController: systemVolumePreparationViewController,
+            testViewController: testViewController
         )
     }
     
@@ -100,5 +101,9 @@ private extension AppDelegate {
             observer: systemVolumeManager,
             onNextButtonTap: onNextButtonTap
         )
+    }
+    
+    func testViewController(onRestartButtonTap: @escaping () -> Void) -> TestViewController {
+        return TestViewController(onRestartButtonTap: onRestartButtonTap)
     }
 }

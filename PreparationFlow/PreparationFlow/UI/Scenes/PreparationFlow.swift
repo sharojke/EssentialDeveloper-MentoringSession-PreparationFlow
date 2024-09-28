@@ -5,17 +5,20 @@ final class PreparationFlow {
     private let headphonesPreparationViewController: (@escaping () -> Void) -> HeadphonesPreparationViewController
     private let loudnessPreparationViewController: (@escaping () -> Void) -> LoudnessPreparationViewController
     private let systemVolumePreparationViewController: (@escaping () -> Void) -> SystemVolumePreparationViewController
+    private let testViewController: (@escaping () -> Void) -> TestViewController
     
     init(
         navigationController: UINavigationController,
         headphonesPreparationViewController: @escaping (@escaping () -> Void) -> HeadphonesPreparationViewController,
         loudnessPreparationViewController: @escaping (@escaping () -> Void) -> LoudnessPreparationViewController,
-        systemVolumePreparationViewController: @escaping (@escaping () -> Void) -> SystemVolumePreparationViewController
+        systemVolumePreparationViewController: @escaping (@escaping () -> Void) -> SystemVolumePreparationViewController,
+        testViewController: @escaping (@escaping () -> Void) -> TestViewController
     ) {
         self.navigationController = navigationController
         self.headphonesPreparationViewController = headphonesPreparationViewController
         self.loudnessPreparationViewController = loudnessPreparationViewController
         self.systemVolumePreparationViewController = systemVolumePreparationViewController
+        self.testViewController = testViewController
     }
     
     func start() {
@@ -30,8 +33,13 @@ final class PreparationFlow {
     }
     
     private func showSystemVolumePreparation() {
-        let systemVolumePreparation = systemVolumePreparationViewController {}
+        let systemVolumePreparation = systemVolumePreparationViewController(shotTest)
         navigationController.pushViewController(systemVolumePreparation, animated: true)
 
+    }
+    
+    private func shotTest() {
+        let test = testViewController(start)
+        navigationController.setViewControllers([test], animated: true)
     }
 }
