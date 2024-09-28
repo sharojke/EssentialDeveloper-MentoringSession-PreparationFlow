@@ -7,7 +7,7 @@ actor LoudnessManager: LoudnessManageable {
     private var subscriptions = [(LoudnessLevel) -> Void]()
     
     init(isMicrophonePermissionAllowed: () -> Bool) {
-        // TODO: Uncomment this
+        // TODO: Before initing the manager the permission has to be allowed. Look for the `allowPermission` function
 //        assert(
 //            isMicrophonePermissionAllowed(),
 //            "Microphone permission has to be allowed before calling the initializer"

@@ -2,10 +2,22 @@ import UIKit
 
 final class LoudnessPreparationViewController: UIViewController {
     private let onNextButtonTap: () -> Void
+    private let onPermissionButtonTap: () -> Void
     
     private let nextButton: ReactiveButton = {
         let button = ReactiveButton()
         button.setTitle("Next", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 24, weight: .semibold)
+        button.backgroundColor = .blue
+        button.layer.cornerRadius = 16
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    private let allowPermissionButton: ReactiveButton = {
+        let button = ReactiveButton()
+        button.setTitle("Allow mic permission", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 24, weight: .semibold)
         button.backgroundColor = .blue
@@ -28,8 +40,9 @@ final class LoudnessPreparationViewController: UIViewController {
         return view.safeAreaLayoutGuide
     }
     
-    init(onNextButtonTap: @escaping () -> Void) {
+    init(onNextButtonTap: @escaping () -> Void, onPermissionButtonTap: @escaping () -> Void) {
         self.onNextButtonTap = onNextButtonTap
+        self.onPermissionButtonTap = onPermissionButtonTap
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -54,6 +67,7 @@ final class LoudnessPreparationViewController: UIViewController {
     private func configureUI() {
         view.backgroundColor = .white
         configureNextButton()
+        configureAllowPermissionButton()
         configureLoudnessLabel()
         
     }
@@ -72,6 +86,20 @@ final class LoudnessPreparationViewController: UIViewController {
         )
     }
     
+    private func configureAllowPermissionButton() {
+        allowPermissionButton.addTarget(self, action: #selector(allowPermissionButtonTap), for: .touchUpInside)
+        view.addSubview(allowPermissionButton)
+        
+        NSLayoutConstraint.activate(
+            [
+                allowPermissionButton.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -16),
+                allowPermissionButton.leadingAnchor.constraint(equalTo: nextButton.leadingAnchor),
+                allowPermissionButton.centerXAnchor.constraint(equalTo: nextButton.centerXAnchor),
+                allowPermissionButton.heightAnchor.constraint(equalTo: nextButton.heightAnchor)
+            ]
+        )
+    }
+    
     private func configureLoudnessLabel() {
         view.addSubview(loudnessLabel)
         
@@ -86,5 +114,10 @@ final class LoudnessPreparationViewController: UIViewController {
     
     @objc private func nextButtonTap() {
         onNextButtonTap()
+    }
+    
+    @objc private func allowPermissionButtonTap() {
+        allowPermissionButton.defaultAlpha = .zero
+        onPermissionButtonTap()
     }
 }

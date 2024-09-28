@@ -90,7 +90,10 @@ private extension AppDelegate {
     ) -> LoudnessPreparationViewController {
         return LoudnessPreparationComposer.scene(
             observer: loudnessManager,
-            onNextButtonTap: onNextButtonTap
+            onNextButtonTap: onNextButtonTap,
+            onPermissionButtonTap: { [weak microphonePermissionManager] in
+                microphonePermissionManager?.allowPermission()
+            }
         )
     }
     

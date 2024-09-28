@@ -43,3 +43,11 @@ final class PreparationFlow {
         navigationController.setViewControllers([test], animated: true)
     }
 }
+
+
+/// ** BONUS QUESTIONS:
+
+/// Starting a new flow:
+/// - where to initialize the flow?
+/// - where to hold the reference to the flow?
+/// - how to remove the prev flow if it is not needed anymore?
