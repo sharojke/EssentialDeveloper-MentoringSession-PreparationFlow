@@ -1,6 +1,6 @@
 import UIKit
 
-enum LoudnessPreparationValuesProvider {
+private enum LoudnessPreparationValuesProvider {
     static func provide(
         level: LoudnessLevel,
         loud: String = "Loudness is\nNOT OK",

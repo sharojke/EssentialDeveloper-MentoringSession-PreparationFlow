@@ -70,7 +70,8 @@ private extension AppDelegate {
         return PreparationFlow(
             navigationController: navigationController,
             headphonesPreparationViewController: headphonesPreparationViewController,
-            loudnessPreparationViewController: loudnessPreparationViewController
+            loudnessPreparationViewController: loudnessPreparationViewController, 
+            systemVolumePreparationViewController: systemVolumePreparationViewController
         )
     }
     
@@ -88,6 +89,15 @@ private extension AppDelegate {
     ) -> LoudnessPreparationViewController {
         return LoudnessPreparationComposer.scene(
             observer: loudnessManager,
+            onNextButtonTap: onNextButtonTap
+        )
+    }
+    
+    func systemVolumePreparationViewController(
+        onNextButtonTap: @escaping () -> Void
+    ) -> SystemVolumePreparationViewController {
+        return SystemVolumePreparationComposer.scene(
+            observer: systemVolumeManager,
             onNextButtonTap: onNextButtonTap
         )
     }

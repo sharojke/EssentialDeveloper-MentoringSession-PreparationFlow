@@ -68,7 +68,7 @@ enum PermissionControlsContainerComposer {
             icon: icon,
             onTrigger: { [systemVolumeManager] in
                 Task {
-                    let random: Float = Float((0...1).randomElement()!)
+                    let random = Float.random(in: 0...1)
                     await systemVolumeManager.set(volume: random)
                 }
             },

@@ -1,6 +1,6 @@
 import UIKit
 
-enum HeadphonesPreparationConnectionTitleProvider {
+private enum HeadphonesPreparationConnectionTitleProvider {
     static func provide(
         isConnected: Bool,
         connected: String = "Headphones are\nCONNECTED",
