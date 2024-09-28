@@ -1,15 +1,5 @@
 import UIKit
 
-private enum HeadphonesPreparationConnectionTitleProvider {
-    static func provide(
-        isConnected: Bool,
-        connected: String = "Headphones are\nCONNECTED",
-        disconnected: String = "Headphones are\nNOT CONNECTED"
-    ) -> String {
-        return isConnected ? connected : disconnected
-    }
-}
-
 enum HeadphonesPreparationComposer {
     static func scene(
         observer: HeadphonesConnectionObservable,
@@ -31,7 +21,7 @@ enum HeadphonesPreparationComposer {
         _ controller: HeadphonesPreparationViewController?,
         connected isConnected: Bool
     ) {
-        let title = HeadphonesPreparationConnectionTitleProvider.provide(isConnected: isConnected)
+        let title = HeadphonesConnectionTitleProvider.provide(isConnected: isConnected)
         controller?.setConnected(isConnected, title: title)
     }
 }

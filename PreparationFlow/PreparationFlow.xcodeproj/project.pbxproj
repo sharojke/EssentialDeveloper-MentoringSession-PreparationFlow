@@ -12,6 +12,12 @@
 		BBB96BAB2CA882D000EB20C0 /* SystemVolumePreparationComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB96BAA2CA882D000EB20C0 /* SystemVolumePreparationComposer.swift */; };
 		BBB96BAD2CA8834B00EB20C0 /* SystemVolumePreparationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB96BAC2CA8834B00EB20C0 /* SystemVolumePreparationViewController.swift */; };
 		BBB96BB02CA88BC000EB20C0 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB96BAF2CA88BC000EB20C0 /* TestViewController.swift */; };
+		BBB96BB42CA89AF900EB20C0 /* HeadphonesInterruption.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB96BB32CA89AF900EB20C0 /* HeadphonesInterruption.swift */; };
+		BBB96BB82CA96E7D00EB20C0 /* HeadphonesConnectionTitleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB96BB72CA96E7D00EB20C0 /* HeadphonesConnectionTitleProvider.swift */; };
+		BBB96BBC2CA96EA800EB20C0 /* LoudnessInterruption.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB96BBB2CA96EA800EB20C0 /* LoudnessInterruption.swift */; };
+		BBB96BBE2CA96EDB00EB20C0 /* LoudnessValuesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB96BBD2CA96EDB00EB20C0 /* LoudnessValuesProvider.swift */; };
+		BBB96BC22CA96F1800EB20C0 /* SystemVolumeInterruption.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB96BC12CA96F1800EB20C0 /* SystemVolumeInterruption.swift */; };
+		BBB96BC42CA96F3900EB20C0 /* SystemVolumeValuesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB96BC32CA96F3900EB20C0 /* SystemVolumeValuesProvider.swift */; };
 		BBC21FE32CA0AF90005901E8 /* LoudnessPreparationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC21FE22CA0AF90005901E8 /* LoudnessPreparationViewController.swift */; };
 		BBC21FE52CA0B02D005901E8 /* LoudnessPreparationComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC21FE42CA0B02D005901E8 /* LoudnessPreparationComposer.swift */; };
 		BBC21FE82CA0B77A005901E8 /* PreparationFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC21FE72CA0B77A005901E8 /* PreparationFlow.swift */; };
@@ -51,6 +57,12 @@
 		BBB96BAA2CA882D000EB20C0 /* SystemVolumePreparationComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemVolumePreparationComposer.swift; sourceTree = "<group>"; };
 		BBB96BAC2CA8834B00EB20C0 /* SystemVolumePreparationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemVolumePreparationViewController.swift; sourceTree = "<group>"; };
 		BBB96BAF2CA88BC000EB20C0 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		BBB96BB32CA89AF900EB20C0 /* HeadphonesInterruption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadphonesInterruption.swift; sourceTree = "<group>"; };
+		BBB96BB72CA96E7D00EB20C0 /* HeadphonesConnectionTitleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadphonesConnectionTitleProvider.swift; sourceTree = "<group>"; };
+		BBB96BBB2CA96EA800EB20C0 /* LoudnessInterruption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoudnessInterruption.swift; sourceTree = "<group>"; };
+		BBB96BBD2CA96EDB00EB20C0 /* LoudnessValuesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoudnessValuesProvider.swift; sourceTree = "<group>"; };
+		BBB96BC12CA96F1800EB20C0 /* SystemVolumeInterruption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemVolumeInterruption.swift; sourceTree = "<group>"; };
+		BBB96BC32CA96F3900EB20C0 /* SystemVolumeValuesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemVolumeValuesProvider.swift; sourceTree = "<group>"; };
 		BBC21FE22CA0AF90005901E8 /* LoudnessPreparationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoudnessPreparationViewController.swift; sourceTree = "<group>"; };
 		BBC21FE42CA0B02D005901E8 /* LoudnessPreparationComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoudnessPreparationComposer.swift; sourceTree = "<group>"; };
 		BBC21FE72CA0B77A005901E8 /* PreparationFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparationFlow.swift; sourceTree = "<group>"; };
@@ -106,13 +118,14 @@
 			path = "Permission Controls Container";
 			sourceTree = "<group>";
 		};
-		BBB96BA92CA8828A00EB20C0 /* System Volume Preparation */ = {
+		BBB96BA92CA8828A00EB20C0 /* System Volume */ = {
 			isa = PBXGroup;
 			children = (
-				BBB96BAA2CA882D000EB20C0 /* SystemVolumePreparationComposer.swift */,
-				BBB96BAC2CA8834B00EB20C0 /* SystemVolumePreparationViewController.swift */,
+				BBB96BBF2CA96F0300EB20C0 /* Preparation */,
+				BBB96BC02CA96F0900EB20C0 /* Interruption */,
+				BBB96BC32CA96F3900EB20C0 /* SystemVolumeValuesProvider.swift */,
 			);
-			path = "System Volume Preparation";
+			path = "System Volume";
 			sourceTree = "<group>";
 		};
 		BBB96BAE2CA8898C00EB20C0 /* Test */ = {
@@ -123,13 +136,66 @@
 			path = Test;
 			sourceTree = "<group>";
 		};
-		BBC21FE12CA0AF6A005901E8 /* Loudness Preparation */ = {
+		BBB96BB52CA96E0D00EB20C0 /* Interruption */ = {
+			isa = PBXGroup;
+			children = (
+				BBB96BB32CA89AF900EB20C0 /* HeadphonesInterruption.swift */,
+			);
+			path = Interruption;
+			sourceTree = "<group>";
+		};
+		BBB96BB62CA96E3C00EB20C0 /* Headphones */ = {
+			isa = PBXGroup;
+			children = (
+				BBDDD78A2C8C5E1400D6EF3F /* Preparation */,
+				BBB96BB52CA96E0D00EB20C0 /* Interruption */,
+				BBB96BB72CA96E7D00EB20C0 /* HeadphonesConnectionTitleProvider.swift */,
+			);
+			path = Headphones;
+			sourceTree = "<group>";
+		};
+		BBB96BB92CA96E8D00EB20C0 /* Loudness */ = {
+			isa = PBXGroup;
+			children = (
+				BBC21FE12CA0AF6A005901E8 /* Preparation */,
+				BBB96BBA2CA96E9D00EB20C0 /* Interruption */,
+				BBB96BBD2CA96EDB00EB20C0 /* LoudnessValuesProvider.swift */,
+			);
+			path = Loudness;
+			sourceTree = "<group>";
+		};
+		BBB96BBA2CA96E9D00EB20C0 /* Interruption */ = {
+			isa = PBXGroup;
+			children = (
+				BBB96BBB2CA96EA800EB20C0 /* LoudnessInterruption.swift */,
+			);
+			path = Interruption;
+			sourceTree = "<group>";
+		};
+		BBB96BBF2CA96F0300EB20C0 /* Preparation */ = {
+			isa = PBXGroup;
+			children = (
+				BBB96BAA2CA882D000EB20C0 /* SystemVolumePreparationComposer.swift */,
+				BBB96BAC2CA8834B00EB20C0 /* SystemVolumePreparationViewController.swift */,
+			);
+			path = Preparation;
+			sourceTree = "<group>";
+		};
+		BBB96BC02CA96F0900EB20C0 /* Interruption */ = {
+			isa = PBXGroup;
+			children = (
+				BBB96BC12CA96F1800EB20C0 /* SystemVolumeInterruption.swift */,
+			);
+			path = Interruption;
+			sourceTree = "<group>";
+		};
+		BBC21FE12CA0AF6A005901E8 /* Preparation */ = {
 			isa = PBXGroup;
 			children = (
 				BBC21FE42CA0B02D005901E8 /* LoudnessPreparationComposer.swift */,
 				BBC21FE22CA0AF90005901E8 /* LoudnessPreparationViewController.swift */,
 			);
-			path = "Loudness Preparation";
+			path = Preparation;
 			sourceTree = "<group>";
 		};
 		BBDDD7642C8C54D400D6EF3F = {
@@ -193,22 +259,22 @@
 		BBDDD7892C8C5E0100D6EF3F /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				BBDDD78A2C8C5E1400D6EF3F /* Headphones Preparation */,
-				BBC21FE12CA0AF6A005901E8 /* Loudness Preparation */,
-				BBB96BA92CA8828A00EB20C0 /* System Volume Preparation */,
+				BBB96BB62CA96E3C00EB20C0 /* Headphones */,
+				BBB96BB92CA96E8D00EB20C0 /* Loudness */,
+				BBB96BA92CA8828A00EB20C0 /* System Volume */,
 				BBB96BAE2CA8898C00EB20C0 /* Test */,
 				BBC21FE72CA0B77A005901E8 /* PreparationFlow.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
 		};
-		BBDDD78A2C8C5E1400D6EF3F /* Headphones Preparation */ = {
+		BBDDD78A2C8C5E1400D6EF3F /* Preparation */ = {
 			isa = PBXGroup;
 			children = (
 				BBB516FD2C98B68800A080BF /* HeadphonesPreparationComposer.swift */,
 				BBDDD7742C8C54D400D6EF3F /* HeadphonesPreparationViewController.swift */,
 			);
-			path = "Headphones Preparation";
+			path = Preparation;
 			sourceTree = "<group>";
 		};
 		BBDDD78B2C8C5E2B00D6EF3F /* Resources */ = {
@@ -408,11 +474,13 @@
 				BBF35D632C8CE205006AEC65 /* HeadphonesConnectionSettable.swift in Sources */,
 				BBDDD7852C8C5A2C00D6EF3F /* UIViewController+Extensions.swift in Sources */,
 				BBF35D662C8CF0B0006AEC65 /* SystemVolumeObservable.swift in Sources */,
+				BBB96BBE2CA96EDB00EB20C0 /* LoudnessValuesProvider.swift in Sources */,
 				BBF35D732C8CF2B4006AEC65 /* LoudnessManager.swift in Sources */,
 				BBF35D6A2C8CF126006AEC65 /* SystemVolumeManager.swift in Sources */,
 				BBDDD7752C8C54D400D6EF3F /* HeadphonesPreparationViewController.swift in Sources */,
 				BBF35D762C8CF3DA006AEC65 /* PreparationInterruption.swift in Sources */,
 				BBF35D9B2C8E10A6006AEC65 /* Xibable.swift in Sources */,
+				BBB96BB82CA96E7D00EB20C0 /* HeadphonesConnectionTitleProvider.swift in Sources */,
 				BBF35D8D2C8E0182006AEC65 /* ReactiveButton.swift in Sources */,
 				BBB516FE2C98B68800A080BF /* HeadphonesPreparationComposer.swift in Sources */,
 				BBF35D962C8E09DC006AEC65 /* PermissionControlsContainerView.swift in Sources */,
@@ -425,6 +493,7 @@
 				BBF35D852C8DFC92006AEC65 /* UIView+Extensions.swift in Sources */,
 				BBB96BB02CA88BC000EB20C0 /* TestViewController.swift in Sources */,
 				BBC21FE52CA0B02D005901E8 /* LoudnessPreparationComposer.swift in Sources */,
+				BBB96BBC2CA96EA800EB20C0 /* LoudnessInterruption.swift in Sources */,
 				BBF35D6D2C8CF23A006AEC65 /* LoudnessObservable.swift in Sources */,
 				BBF35D6F2C8CF249006AEC65 /* LoudnessLevel.swift in Sources */,
 				BBC21FE32CA0AF90005901E8 /* LoudnessPreparationViewController.swift in Sources */,
@@ -432,10 +501,13 @@
 				BBF35D832C8DFC4A006AEC65 /* NibView.swift in Sources */,
 				BBC21FE82CA0B77A005901E8 /* PreparationFlow.swift in Sources */,
 				BBF35D682C8CF106006AEC65 /* SystemVolumeSettable.swift in Sources */,
+				BBB96BC42CA96F3900EB20C0 /* SystemVolumeValuesProvider.swift in Sources */,
+				BBB96BC22CA96F1800EB20C0 /* SystemVolumeInterruption.swift in Sources */,
 				BBF35D712C8CF292006AEC65 /* LoudnessSettable.swift in Sources */,
 				BBF35D932C8E0352006AEC65 /* TimeInterval+AnimationDurations.swift in Sources */,
 				BBB96BAB2CA882D000EB20C0 /* SystemVolumePreparationComposer.swift in Sources */,
 				BBF35D612C8CE130006AEC65 /* HeadphonesConnectionManager.swift in Sources */,
+				BBB96BB42CA89AF900EB20C0 /* HeadphonesInterruption.swift in Sources */,
 				BBB96BAD2CA8834B00EB20C0 /* SystemVolumePreparationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,21 +1,5 @@
 import UIKit
 
-private enum LoudnessPreparationValuesProvider {
-    static func provide(
-        level: LoudnessLevel,
-        loud: String = "Loudness is\nNOT OK",
-        quiet: String = "Loudness is\nOK"
-    ) -> (isLoud: Bool, title: String) {
-        return switch level {
-        case .loud:
-            (true, loud)
-            
-        case .quiet:
-            (false, quiet)
-        }
-    }
-}
-
 enum LoudnessPreparationComposer {
     static func scene(
         observer: LoudnessObservable,
@@ -41,7 +25,7 @@ enum LoudnessPreparationComposer {
         _ controller: LoudnessPreparationViewController?,
         level: LoudnessLevel
     ) {
-        let (isLoud, title) = LoudnessPreparationValuesProvider.provide(level: level)
+        let (isLoud, title) = LoudnessValuesProvider.provide(level: level)
         controller?.setLoud(isLoud, title: title)
     }
 }

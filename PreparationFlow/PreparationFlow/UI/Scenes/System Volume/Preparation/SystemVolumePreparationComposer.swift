@@ -1,16 +1,5 @@
 import UIKit
 
-private enum SystemVolumePreparationValuesProvider {
-    static func provide(
-        volume: Float,
-        satisfyingVolume: Float = 0.5
-    ) -> (isSatisfied: Bool, title: String) {
-        let volumeString = Int(volume * 100)
-        let title = "System volume is\n\(volumeString)%"
-        return (volume == satisfyingVolume, title)
-    }
-}
-
 enum SystemVolumePreparationComposer {
     static func scene(
         observer: SystemVolumeObservable,
@@ -32,7 +21,7 @@ enum SystemVolumePreparationComposer {
         _ controller: SystemVolumePreparationViewController?,
         systemVolume: Float
     ) {
-        let (isSatisfied, title) = SystemVolumePreparationValuesProvider.provide(volume: systemVolume)
+        let (isSatisfied, title) = SystemVolumeValuesProvider.provide(volume: systemVolume)
         controller?.setSatisfied(isSatisfied, title: title)
     }
 }
