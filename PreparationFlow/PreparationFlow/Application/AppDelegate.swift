@@ -69,6 +69,8 @@ private extension AppDelegate {
 // MARK: - Preparation Flow
 
 private extension AppDelegate {
+    // MARK: Preparations
+    
     func preparationFlow(navigationController: UINavigationController) -> PreparationFlow {
         return PreparationFlow(
             navigationController: navigationController,
@@ -109,9 +111,7 @@ private extension AppDelegate {
         )
     }
     
-    func testViewController(onRestartButtonTap: @escaping () -> Void) -> TestViewController {
-        return TestViewController(onRestartButtonTap: onRestartButtonTap)
-    }
+    // MARK: Interruptions
     
     func headphonesInterruptionViewController() -> HeadphonesInterruptionViewController {
         return HeadphonesInterruptionComposer.scene(
@@ -128,5 +128,21 @@ private extension AppDelegate {
             permissionControlsContainerView: permissionControlsContainerView(),
             onTestAnywayButtonTap: onTestAnywayButtonTap
         )
+    }
+    
+    func systemVolumeInterruptionViewController(
+        onShowInfoButtonTap: @escaping () -> Void
+    ) -> SystemVolumeInterruptionViewController {
+        return SystemVolumeInterruptionComposer.scene(
+            observer: systemVolumeManager,
+            permissionControlsContainerView: permissionControlsContainerView(),
+            onShowInfoButtonTap: onShowInfoButtonTap
+        )
+    }
+    
+    // MARK: Other
+    
+    func testViewController(onRestartButtonTap: @escaping () -> Void) -> TestViewController {
+        return TestViewController(onRestartButtonTap: onRestartButtonTap)
     }
 }

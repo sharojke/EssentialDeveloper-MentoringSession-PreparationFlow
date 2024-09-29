@@ -16,10 +16,11 @@
 		BBB96BB82CA96E7D00EB20C0 /* HeadphonesConnectionTitleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB96BB72CA96E7D00EB20C0 /* HeadphonesConnectionTitleProvider.swift */; };
 		BBB96BBC2CA96EA800EB20C0 /* LoudnessInterruptionComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB96BBB2CA96EA800EB20C0 /* LoudnessInterruptionComposer.swift */; };
 		BBB96BBE2CA96EDB00EB20C0 /* LoudnessValuesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB96BBD2CA96EDB00EB20C0 /* LoudnessValuesProvider.swift */; };
-		BBB96BC22CA96F1800EB20C0 /* SystemVolumeInterruption.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB96BC12CA96F1800EB20C0 /* SystemVolumeInterruption.swift */; };
+		BBB96BC22CA96F1800EB20C0 /* SystemVolumeInterruptionComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB96BC12CA96F1800EB20C0 /* SystemVolumeInterruptionComposer.swift */; };
 		BBB96BC42CA96F3900EB20C0 /* SystemVolumeValuesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB96BC32CA96F3900EB20C0 /* SystemVolumeValuesProvider.swift */; };
 		BBB96BC62CA9755500EB20C0 /* HeadphonesInterruptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB96BC52CA9755500EB20C0 /* HeadphonesInterruptionViewController.swift */; };
 		BBB96BC82CA982A900EB20C0 /* LoudnessInterruptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB96BC72CA982A900EB20C0 /* LoudnessInterruptionViewController.swift */; };
+		BBB96BCA2CA98CF300EB20C0 /* SystemVolumeInterruptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB96BC92CA98CF300EB20C0 /* SystemVolumeInterruptionViewController.swift */; };
 		BBC21FE32CA0AF90005901E8 /* LoudnessPreparationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC21FE22CA0AF90005901E8 /* LoudnessPreparationViewController.swift */; };
 		BBC21FE52CA0B02D005901E8 /* LoudnessPreparationComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC21FE42CA0B02D005901E8 /* LoudnessPreparationComposer.swift */; };
 		BBC21FE82CA0B77A005901E8 /* PreparationFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC21FE72CA0B77A005901E8 /* PreparationFlow.swift */; };
@@ -63,10 +64,11 @@
 		BBB96BB72CA96E7D00EB20C0 /* HeadphonesConnectionTitleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadphonesConnectionTitleProvider.swift; sourceTree = "<group>"; };
 		BBB96BBB2CA96EA800EB20C0 /* LoudnessInterruptionComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoudnessInterruptionComposer.swift; sourceTree = "<group>"; };
 		BBB96BBD2CA96EDB00EB20C0 /* LoudnessValuesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoudnessValuesProvider.swift; sourceTree = "<group>"; };
-		BBB96BC12CA96F1800EB20C0 /* SystemVolumeInterruption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemVolumeInterruption.swift; sourceTree = "<group>"; };
+		BBB96BC12CA96F1800EB20C0 /* SystemVolumeInterruptionComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemVolumeInterruptionComposer.swift; sourceTree = "<group>"; };
 		BBB96BC32CA96F3900EB20C0 /* SystemVolumeValuesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemVolumeValuesProvider.swift; sourceTree = "<group>"; };
 		BBB96BC52CA9755500EB20C0 /* HeadphonesInterruptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadphonesInterruptionViewController.swift; sourceTree = "<group>"; };
 		BBB96BC72CA982A900EB20C0 /* LoudnessInterruptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoudnessInterruptionViewController.swift; sourceTree = "<group>"; };
+		BBB96BC92CA98CF300EB20C0 /* SystemVolumeInterruptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemVolumeInterruptionViewController.swift; sourceTree = "<group>"; };
 		BBC21FE22CA0AF90005901E8 /* LoudnessPreparationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoudnessPreparationViewController.swift; sourceTree = "<group>"; };
 		BBC21FE42CA0B02D005901E8 /* LoudnessPreparationComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoudnessPreparationComposer.swift; sourceTree = "<group>"; };
 		BBC21FE72CA0B77A005901E8 /* PreparationFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparationFlow.swift; sourceTree = "<group>"; };
@@ -190,7 +192,8 @@
 		BBB96BC02CA96F0900EB20C0 /* Interruption */ = {
 			isa = PBXGroup;
 			children = (
-				BBB96BC12CA96F1800EB20C0 /* SystemVolumeInterruption.swift */,
+				BBB96BC12CA96F1800EB20C0 /* SystemVolumeInterruptionComposer.swift */,
+				BBB96BC92CA98CF300EB20C0 /* SystemVolumeInterruptionViewController.swift */,
 			);
 			path = Interruption;
 			sourceTree = "<group>";
@@ -505,12 +508,13 @@
 				BBF35D6D2C8CF23A006AEC65 /* LoudnessObservable.swift in Sources */,
 				BBF35D6F2C8CF249006AEC65 /* LoudnessLevel.swift in Sources */,
 				BBC21FE32CA0AF90005901E8 /* LoudnessPreparationViewController.swift in Sources */,
+				BBB96BCA2CA98CF300EB20C0 /* SystemVolumeInterruptionViewController.swift in Sources */,
 				BBF35D882C8DFFC4006AEC65 /* PermissionControlView.swift in Sources */,
 				BBF35D832C8DFC4A006AEC65 /* NibView.swift in Sources */,
 				BBC21FE82CA0B77A005901E8 /* PreparationFlow.swift in Sources */,
 				BBF35D682C8CF106006AEC65 /* SystemVolumeSettable.swift in Sources */,
 				BBB96BC42CA96F3900EB20C0 /* SystemVolumeValuesProvider.swift in Sources */,
-				BBB96BC22CA96F1800EB20C0 /* SystemVolumeInterruption.swift in Sources */,
+				BBB96BC22CA96F1800EB20C0 /* SystemVolumeInterruptionComposer.swift in Sources */,
 				BBF35D712C8CF292006AEC65 /* LoudnessSettable.swift in Sources */,
 				BBF35D932C8E0352006AEC65 /* TimeInterval+AnimationDurations.swift in Sources */,
 				BBB96BAB2CA882D000EB20C0 /* SystemVolumePreparationComposer.swift in Sources */,
