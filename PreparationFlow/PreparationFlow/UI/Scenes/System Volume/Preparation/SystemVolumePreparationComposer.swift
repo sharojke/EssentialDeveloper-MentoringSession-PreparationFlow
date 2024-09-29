@@ -3,14 +3,23 @@ import UIKit
 enum SystemVolumePreparationComposer {
     static func scene(
         observer: SystemVolumeObservable,
-        onNextButtonTap: @escaping () -> Void
+        satisfyingSystemVolume: Float,
+        onNextButtonTap: @escaping () -> Void,
+        onShowInfoButtonTap: @escaping () -> Void
     ) -> SystemVolumePreparationViewController {
-        let controller = SystemVolumePreparationViewController(onNextButtonTap: onNextButtonTap)
+        let controller = SystemVolumePreparationViewController(
+            onNextButtonTap: onNextButtonTap,
+            onShowInfoButtonTap: onShowInfoButtonTap
+        )
         
         Task {
-            await set(controller, systemVolume: observer.volume())
+            await set(
+                controller,
+                systemVolume: observer.volume(),
+                satisfyingSystemVolume: satisfyingSystemVolume
+            )
             await observer.add { [weak controller] volume in
-                set(controller, systemVolume: volume)
+                set(controller, systemVolume: volume, satisfyingSystemVolume: satisfyingSystemVolume)
             }
         }
         
@@ -19,9 +28,13 @@ enum SystemVolumePreparationComposer {
     
     private static func set(
         _ controller: SystemVolumePreparationViewController?,
-        systemVolume: Float
+        systemVolume: Float,
+        satisfyingSystemVolume: Float
     ) {
-        let (isSatisfied, title) = SystemVolumeValuesProvider.provide(volume: systemVolume)
+        let (isSatisfied, title) = SystemVolumeValuesProvider.provide(
+            volume: systemVolume,
+            satisfyingVolume: satisfyingSystemVolume
+        )
         controller?.setSatisfied(isSatisfied, title: title)
     }
 }

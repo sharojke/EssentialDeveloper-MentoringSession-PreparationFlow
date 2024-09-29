@@ -1,21 +1,7 @@
 import UIKit
 
-final class SystemVolumeInterruptionViewController: UIViewController {
+final class InfoViewController: UIViewController {
     private let permissionControlsContainerView: UIView
-    
-    private let systemVolumeLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.numberOfLines = .zero
-        label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private var safeAreaLayoutGuide: UILayoutGuide {
-        return view.safeAreaLayoutGuide
-    }
     
     init(permissionControlsContainerView: UIView) {
         self.permissionControlsContainerView = permissionControlsContainerView
@@ -29,21 +15,8 @@ final class SystemVolumeInterruptionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureUI()
-    }
-    
-    func setTitle(_ title: String) {
-        // TODO: Move the threading logic to the composer
-        Task { @MainActor [weak self] in
-            self?.systemVolumeLabel.text = title
-        }
-    }
-    
-    private func configureUI() {
         view.backgroundColor = .white
         configurePermissionControlsContainerView()
-        configureSystemVolumeLabel()
-        
     }
     
     private func configurePermissionControlsContainerView() {
@@ -62,18 +35,6 @@ final class SystemVolumeInterruptionViewController: UIViewController {
                     constant: 16
                 ),
                 permissionControlsContainerView.heightAnchor.constraint(equalToConstant: 100)
-            ]
-        )
-    }
-    
-    private func configureSystemVolumeLabel() {
-        view.addSubview(systemVolumeLabel)
-        
-        NSLayoutConstraint.activate(
-            [
-                systemVolumeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                systemVolumeLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-                systemVolumeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16)
             ]
         )
     }

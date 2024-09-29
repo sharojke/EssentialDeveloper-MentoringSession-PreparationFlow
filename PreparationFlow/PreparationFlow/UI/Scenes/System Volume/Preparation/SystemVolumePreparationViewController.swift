@@ -2,6 +2,7 @@ import UIKit
 
 final class SystemVolumePreparationViewController: UIViewController {
     private let onNextButtonTap: () -> Void
+    private let onShowInfoButtonTap: () -> Void
     
     private let nextButton: ReactiveButton = {
         let button = ReactiveButton()
@@ -9,6 +10,17 @@ final class SystemVolumePreparationViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 24, weight: .semibold)
         button.backgroundColor = .blue
+        button.layer.cornerRadius = 16
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    private let showInfoButton: ReactiveButton = {
+        let button = ReactiveButton()
+        button.setTitle("Show info", for: .normal)
+        button.setTitleColor(.blue, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 24, weight: .semibold)
+        button.backgroundColor = .clear
         button.layer.cornerRadius = 16
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -28,8 +40,12 @@ final class SystemVolumePreparationViewController: UIViewController {
         return view.safeAreaLayoutGuide
     }
     
-    init(onNextButtonTap: @escaping () -> Void) {
+    init(
+        onNextButtonTap: @escaping () -> Void,
+        onShowInfoButtonTap: @escaping () -> Void
+    ) {
         self.onNextButtonTap = onNextButtonTap
+        self.onShowInfoButtonTap = onShowInfoButtonTap
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -54,6 +70,7 @@ final class SystemVolumePreparationViewController: UIViewController {
     private func configureUI() {
         view.backgroundColor = .white
         configureNextButton()
+        configureShowInfoButton()
         configureSystemVolumeLabel()
         
     }
@@ -72,6 +89,20 @@ final class SystemVolumePreparationViewController: UIViewController {
         )
     }
     
+    private func configureShowInfoButton() {
+        showInfoButton.addTarget(self, action: #selector(showInfoButtonTap), for: .touchUpInside)
+        view.addSubview(showInfoButton)
+        
+        NSLayoutConstraint.activate(
+            [
+                showInfoButton.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -16),
+                showInfoButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+                showInfoButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                showInfoButton.heightAnchor.constraint(equalToConstant: 64)
+            ]
+        )
+    }
+    
     private func configureSystemVolumeLabel() {
         view.addSubview(systemVolumeLabel)
         
@@ -86,5 +117,9 @@ final class SystemVolumePreparationViewController: UIViewController {
     
     @objc private func nextButtonTap() {
         onNextButtonTap()
+    }
+    
+    @objc private func showInfoButtonTap() {
+        onShowInfoButtonTap()
     }
 }

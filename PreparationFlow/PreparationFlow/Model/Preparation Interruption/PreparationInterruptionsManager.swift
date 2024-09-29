@@ -24,6 +24,7 @@ actor PreparationInterruptionsManager: PreparationInterruptionsManageable {
     
     func remove(observableInterruption interruption: PreparationInterruption) {
         observableInterruptions.remove(interruption)
+        manage(satisfiedInterruption: interruption)
     }
     
     func manage(triggeredInterruption interruption: PreparationInterruption) {
@@ -44,14 +45,14 @@ actor PreparationInterruptionsManager: PreparationInterruptionsManageable {
     }
     
     func manage(satisfiedInterruption interruption: PreparationInterruption) {
+        pendingInterruptions.remove(interruption)
+        
         if let currentInterruption, interruption == currentInterruption {
             set(currentInterruption: nextPendingInterruption())
-        } else {
-            pendingInterruptions.remove(interruption)
         }
     }
     
-    // MARK: - Helpers
+    // MARK: Helpers
     
     private func set(currentInterruption: PreparationInterruption?) {
         self.currentInterruption = currentInterruption

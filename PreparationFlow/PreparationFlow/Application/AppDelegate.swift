@@ -11,6 +11,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private lazy var loudnessManager: LoudnessManageable = LoudnessManager(
         isMicrophonePermissionAllowed: microphonePermissionManager.isPermissionAllowed
     )
+    private let interruptionsManager: PreparationInterruptionsManageable = PreparationInterruptionsManager()
+    private var satisfyingSystemVolume: Float { 0.5 }
     
     func application(
         _ application: UIApplication,
@@ -18,9 +20,50 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ) -> Bool {
         let navigationController = UINavigationController()
         configureWindow(rootViewController: navigationController)
+        bindInterruptionsManger()
         preparationFlow = preparationFlow(navigationController: navigationController)
         preparationFlow.start()
         return true
+    }
+    
+    private func bindInterruptionsManger() {
+        Task { [weak self] in
+            await self?.headphonesConnectionManager.add { isConnected in
+                Task { [weak self] in
+                    if isConnected {
+                        await self?.interruptionsManager.manage(satisfiedInterruption: .headphones)
+                    } else {
+                        await self?.interruptionsManager.manage(triggeredInterruption: .headphones)
+                    }
+                }
+            }
+        }
+        
+        Task { [weak self] in
+            await self?.systemVolumeManager.add { volume in
+                guard let self else { return }
+                
+                Task { [weak self] in
+                    if volume == self?.satisfyingSystemVolume {
+                        await self?.interruptionsManager.manage(satisfiedInterruption: .systemVolume)
+                    } else {
+                        await self?.interruptionsManager.manage(triggeredInterruption: .systemVolume)
+                    }
+                }
+            }
+        }
+        
+        Task { [weak self] in
+            await self?.loudnessManager.add { loudness in
+                Task { [weak self] in
+                    if loudness == .quiet {
+                        await self?.interruptionsManager.manage(satisfiedInterruption: .loudness)
+                    } else {
+                        await self?.interruptionsManager.manage(triggeredInterruption: .loudness)
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -61,7 +104,8 @@ private extension AppDelegate {
         return PermissionControlsContainerComposer.compose(
             headphonesConnectionManager: headphonesConnectionManager,
             loudnessManager: loudnessManager,
-            systemVolumeManager: systemVolumeManager
+            systemVolumeManager: systemVolumeManager,
+            satisfyingSystemVolume: satisfyingSystemVolume
         )
     }
 }
@@ -74,10 +118,15 @@ private extension AppDelegate {
     func preparationFlow(navigationController: UINavigationController) -> PreparationFlow {
         return PreparationFlow(
             navigationController: navigationController,
-            headphonesPreparationViewController: headphonesPreparationViewController,
-            loudnessPreparationViewController: loudnessPreparationViewController, 
-            systemVolumePreparationViewController: systemVolumePreparationViewController,
-            testViewController: testViewController
+            headphonesPreparationController: headphonesPreparationViewController,
+            loudnessPreparationController: loudnessPreparationViewController, 
+            systemVolumePreparationController: systemVolumePreparationViewController,
+            testController: testViewController, 
+            headphonesInterruptionController: headphonesInterruptionViewController,
+            loudnessInterruptionController: loudnessInterruptionViewController,
+            systemVolumeInterruptionController: systemVolumeInterruptionViewController, 
+            infoController: infoViewController,
+            interruptionsManager: interruptionsManager
         )
     }
     
@@ -103,11 +152,14 @@ private extension AppDelegate {
     }
     
     func systemVolumePreparationViewController(
-        onNextButtonTap: @escaping () -> Void
+        onNextButtonTap: @escaping () -> Void,
+        onShowInfoButtonTap: @escaping () -> Void
     ) -> SystemVolumePreparationViewController {
         return SystemVolumePreparationComposer.scene(
             observer: systemVolumeManager,
-            onNextButtonTap: onNextButtonTap
+            satisfyingSystemVolume: satisfyingSystemVolume,
+            onNextButtonTap: onNextButtonTap,
+            onShowInfoButtonTap: onShowInfoButtonTap
         )
     }
     
@@ -130,13 +182,11 @@ private extension AppDelegate {
         )
     }
     
-    func systemVolumeInterruptionViewController(
-        onShowInfoButtonTap: @escaping () -> Void
-    ) -> SystemVolumeInterruptionViewController {
+    func systemVolumeInterruptionViewController() -> SystemVolumeInterruptionViewController {
         return SystemVolumeInterruptionComposer.scene(
             observer: systemVolumeManager,
             permissionControlsContainerView: permissionControlsContainerView(),
-            onShowInfoButtonTap: onShowInfoButtonTap
+            satisfyingSystemVolume: satisfyingSystemVolume
         )
     }
     
@@ -144,5 +194,9 @@ private extension AppDelegate {
     
     func testViewController(onRestartButtonTap: @escaping () -> Void) -> TestViewController {
         return TestViewController(onRestartButtonTap: onRestartButtonTap)
+    }
+    
+    func infoViewController() -> InfoViewController {
+        return InfoViewController(permissionControlsContainerView: permissionControlsContainerView())
     }
 }

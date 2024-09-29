@@ -1,0 +1,7 @@
+import UIKit
+
+protocol PreparationInterruptionViewController where Self: UIViewController {}
+
+extension HeadphonesInterruptionViewController: PreparationInterruptionViewController {}
+extension LoudnessInterruptionViewController: PreparationInterruptionViewController {}
+extension SystemVolumeInterruptionViewController: PreparationInterruptionViewController {}

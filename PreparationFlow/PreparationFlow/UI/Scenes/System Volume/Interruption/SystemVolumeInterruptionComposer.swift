@@ -4,17 +4,20 @@ enum SystemVolumeInterruptionComposer {
     static func scene(
         observer: SystemVolumeObservable,
         permissionControlsContainerView: UIView,
-        onShowInfoButtonTap: @escaping () -> Void
+        satisfyingSystemVolume: Float
     ) -> SystemVolumeInterruptionViewController {
         let controller = SystemVolumeInterruptionViewController(
-            permissionControlsContainerView: permissionControlsContainerView,
-            onShowInfoButtonTap: onShowInfoButtonTap
+            permissionControlsContainerView: permissionControlsContainerView
         )
         
         Task {
-            await set(controller, systemVolume: observer.volume())
+            await set(
+                controller,
+                systemVolume: observer.volume(),
+                satisfyingSystemVolume: satisfyingSystemVolume
+            )
             await observer.add { [weak controller] volume in
-                set(controller, systemVolume: volume)
+                set(controller, systemVolume: volume, satisfyingSystemVolume: satisfyingSystemVolume)
             }
         }
         
@@ -23,9 +26,13 @@ enum SystemVolumeInterruptionComposer {
     
     private static func set(
         _ controller: SystemVolumeInterruptionViewController?,
-        systemVolume: Float
+        systemVolume: Float,
+        satisfyingSystemVolume: Float
     ) {
-        let (_, title) = SystemVolumeValuesProvider.provide(volume: systemVolume)
+        let (_, title) = SystemVolumeValuesProvider.provide(
+            volume: systemVolume,
+            satisfyingVolume: satisfyingSystemVolume
+        )
         controller?.setTitle(title)
     }
 }

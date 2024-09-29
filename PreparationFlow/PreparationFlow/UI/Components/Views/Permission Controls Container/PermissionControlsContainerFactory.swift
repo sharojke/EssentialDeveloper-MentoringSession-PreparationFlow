@@ -4,7 +4,8 @@ enum PermissionControlsContainerComposer {
     static func compose(
         headphonesConnectionManager: HeadphonesConnectionManageable,
         loudnessManager: LoudnessManageable,
-        systemVolumeManager: SystemVolumeManageable
+        systemVolumeManager: SystemVolumeManageable,
+        satisfyingSystemVolume: Float
     ) -> PermissionControlsContainerView {
         let inputs = PreparationInterruption.ordered.map { interruption in
             return switch interruption {
@@ -15,7 +16,10 @@ enum PermissionControlsContainerComposer {
                 loudnessPermissionControlViewInput(loudnessManager)
                 
             case .systemVolume:
-                systemVolumePermissionControlViewInput(systemVolumeManager)
+                systemVolumePermissionControlViewInput(
+                    systemVolumeManager,
+                    satisfyingSystemVolume: satisfyingSystemVolume
+                )
             }
         }
         
@@ -61,7 +65,8 @@ enum PermissionControlsContainerComposer {
     }
     
     private static func systemVolumePermissionControlViewInput(
-        _ systemVolumeManager: SystemVolumeManageable
+        _ systemVolumeManager: SystemVolumeManageable,
+        satisfyingSystemVolume: Float
     ) -> PermissionControlViewInput {
         let icon = UIImage(systemName: "speaker.wave.2.fill")!
         return PermissionControlViewInput(
@@ -74,7 +79,7 @@ enum PermissionControlsContainerComposer {
             },
             onSatisfy: { [systemVolumeManager] in
                 Task {
-                    await systemVolumeManager.set(volume: 0.5)
+                    await systemVolumeManager.set(volume: satisfyingSystemVolume)
                 }
             }
         )
