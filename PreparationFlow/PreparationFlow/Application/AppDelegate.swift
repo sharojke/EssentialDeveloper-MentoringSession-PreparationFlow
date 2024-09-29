@@ -37,12 +37,7 @@ private extension AppDelegate {
     }
     
     func addPermissionControlsContainerView(to window: UIWindow) {
-        let permissionControlsContainerView = PermissionControlsContainerComposer.compose(
-            headphonesConnectionManager: headphonesConnectionManager,
-            loudnessManager: loudnessManager,
-            systemVolumeManager: systemVolumeManager
-        )
-        permissionControlsContainerView.layer.zPosition = 1
+        let permissionControlsContainerView = permissionControlsContainerView()
         window.addSubview(permissionControlsContainerView)
         permissionControlsContainerView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -59,6 +54,14 @@ private extension AppDelegate {
                 ),
                 permissionControlsContainerView.heightAnchor.constraint(equalToConstant: 100)
             ]
+        )
+    }
+    
+    private func permissionControlsContainerView() -> PermissionControlsContainerView {
+        return PermissionControlsContainerComposer.compose(
+            headphonesConnectionManager: headphonesConnectionManager,
+            loudnessManager: loudnessManager,
+            systemVolumeManager: systemVolumeManager
         )
     }
 }
@@ -108,5 +111,12 @@ private extension AppDelegate {
     
     func testViewController(onRestartButtonTap: @escaping () -> Void) -> TestViewController {
         return TestViewController(onRestartButtonTap: onRestartButtonTap)
+    }
+    
+    func headphonesInterruptionViewController() -> HeadphonesInterruptionViewController {
+        return HeadphonesInterruptionComposer.scene(
+            observer: headphonesConnectionManager,
+            permissionControlsContainerView: permissionControlsContainerView()
+        )
     }
 }
