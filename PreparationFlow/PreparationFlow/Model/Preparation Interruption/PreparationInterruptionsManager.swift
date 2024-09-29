@@ -14,6 +14,14 @@ actor PreparationInterruptionsManager: PreparationInterruptionsManageable {
         self.observableInterruptions = observableInterruptions
     }
     
+    func getCurrentInterruption() async -> PreparationInterruption? {
+        return currentInterruption
+    }
+    
+    func setCurrentInterruption(_ interruption: PreparationInterruption?) async {
+        currentInterruption = interruption
+    }
+    
     func add(subscription: @escaping (PreparationInterruption?) -> Void) {
         subscriptions.append(subscription)
     }

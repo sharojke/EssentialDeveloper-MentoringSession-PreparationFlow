@@ -12,6 +12,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         isMicrophonePermissionAllowed: microphonePermissionManager.isPermissionAllowed
     )
     private let interruptionsManager: PreparationInterruptionsManageable = PreparationInterruptionsManager()
+    private lazy var satisfyDelayedPreparationInterruptionsManager: PreparationInterruptionsManageable = {
+        let twoSecondsInNanoseconds: UInt64 = 2_000_000_000
+        let satisfyDelayedPreparationInterruptionsManager = SatisfyDelayedPreparationInterruptionsManager(
+            decoratee: interruptionsManager,
+            satisfyDelayInNanoseconds: twoSecondsInNanoseconds
+        )
+        return satisfyDelayedPreparationInterruptionsManager
+    }()
+    
     private var satisfyingSystemVolume: Float { 0.5 }
     
     func application(
@@ -31,9 +40,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             await self?.headphonesConnectionManager.add { isConnected in
                 Task { [weak self] in
                     if isConnected {
-                        await self?.interruptionsManager.manage(satisfiedInterruption: .headphones)
+                        await self?.satisfyDelayedPreparationInterruptionsManager.manage(satisfiedInterruption: .headphones)
                     } else {
-                        await self?.interruptionsManager.manage(triggeredInterruption: .headphones)
+                        await self?.satisfyDelayedPreparationInterruptionsManager.manage(triggeredInterruption: .headphones)
                     }
                 }
             }
@@ -45,9 +54,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 Task { [weak self] in
                     if volume == self?.satisfyingSystemVolume {
-                        await self?.interruptionsManager.manage(satisfiedInterruption: .systemVolume)
+                        await self?.satisfyDelayedPreparationInterruptionsManager.manage(satisfiedInterruption: .systemVolume)
                     } else {
-                        await self?.interruptionsManager.manage(triggeredInterruption: .systemVolume)
+                        await self?.satisfyDelayedPreparationInterruptionsManager.manage(triggeredInterruption: .systemVolume)
                     }
                 }
             }
@@ -57,9 +66,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             await self?.loudnessManager.add { loudness in
                 Task { [weak self] in
                     if loudness == .quiet {
-                        await self?.interruptionsManager.manage(satisfiedInterruption: .loudness)
+                        await self?.satisfyDelayedPreparationInterruptionsManager.manage(satisfiedInterruption: .loudness)
                     } else {
-                        await self?.interruptionsManager.manage(triggeredInterruption: .loudness)
+                        await self?.satisfyDelayedPreparationInterruptionsManager.manage(triggeredInterruption: .loudness)
                     }
                 }
             }
@@ -126,7 +135,7 @@ private extension AppDelegate {
             loudnessInterruptionController: loudnessInterruptionViewController,
             systemVolumeInterruptionController: systemVolumeInterruptionViewController, 
             infoController: infoViewController,
-            interruptionsManager: interruptionsManager
+            interruptionsManager: satisfyDelayedPreparationInterruptionsManager
         )
     }
     
