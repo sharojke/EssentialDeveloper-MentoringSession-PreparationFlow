@@ -31,7 +31,6 @@
 		BBDDD7752C8C54D400D6EF3F /* HeadphonesPreparationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDDD7742C8C54D400D6EF3F /* HeadphonesPreparationViewController.swift */; };
 		BBDDD77A2C8C54D700D6EF3F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBDDD7792C8C54D700D6EF3F /* Images.xcassets */; };
 		BBDDD77D2C8C54D700D6EF3F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BBDDD77C2C8C54D700D6EF3F /* Base */; };
-		BBDDD7852C8C5A2C00D6EF3F /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDDD7842C8C5A2C00D6EF3F /* UIViewController+Extensions.swift */; };
 		BBDDD78D2C8C5EAC00D6EF3F /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBDDD78C2C8C5EAC00D6EF3F /* Colors.xcassets */; };
 		BBF35D5F2C8CDF1D006AEC65 /* HeadphonesConnectionObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF35D5E2C8CDF1D006AEC65 /* HeadphonesConnectionObservable.swift */; };
 		BBF35D612C8CE130006AEC65 /* HeadphonesConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF35D602C8CE130006AEC65 /* HeadphonesConnectionManager.swift */; };
@@ -47,7 +46,6 @@
 		BBF35D782C8CF47C006AEC65 /* PreparationInterruptionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF35D772C8CF47C006AEC65 /* PreparationInterruptionsManager.swift */; };
 		BBF35D7A2C8CF4CB006AEC65 /* PreparationInterruptionsManageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF35D792C8CF4CB006AEC65 /* PreparationInterruptionsManageable.swift */; };
 		BBF35D7F2C8DE202006AEC65 /* MicrophonePermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF35D7E2C8DE202006AEC65 /* MicrophonePermissionManager.swift */; };
-		BBF35D832C8DFC4A006AEC65 /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF35D822C8DFC4A006AEC65 /* NibView.swift */; };
 		BBF35D852C8DFC92006AEC65 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF35D842C8DFC92006AEC65 /* UIView+Extensions.swift */; };
 		BBF35D882C8DFFC4006AEC65 /* PermissionControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF35D872C8DFFC4006AEC65 /* PermissionControlView.swift */; };
 		BBF35D8A2C8DFFDC006AEC65 /* PermissionControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBF35D892C8DFFDC006AEC65 /* PermissionControlView.xib */; };
@@ -84,7 +82,6 @@
 		BBDDD7792C8C54D700D6EF3F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BBDDD77C2C8C54D700D6EF3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BBDDD77E2C8C54D700D6EF3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BBDDD7842C8C5A2C00D6EF3F /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		BBDDD78C2C8C5EAC00D6EF3F /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		BBF35D5E2C8CDF1D006AEC65 /* HeadphonesConnectionObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadphonesConnectionObservable.swift; sourceTree = "<group>"; };
 		BBF35D602C8CE130006AEC65 /* HeadphonesConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadphonesConnectionManager.swift; sourceTree = "<group>"; };
@@ -100,7 +97,6 @@
 		BBF35D772C8CF47C006AEC65 /* PreparationInterruptionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparationInterruptionsManager.swift; sourceTree = "<group>"; };
 		BBF35D792C8CF4CB006AEC65 /* PreparationInterruptionsManageable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparationInterruptionsManageable.swift; sourceTree = "<group>"; };
 		BBF35D7E2C8DE202006AEC65 /* MicrophonePermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophonePermissionManager.swift; sourceTree = "<group>"; };
-		BBF35D822C8DFC4A006AEC65 /* NibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibView.swift; sourceTree = "<group>"; };
 		BBF35D842C8DFC92006AEC65 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		BBF35D872C8DFFC4006AEC65 /* PermissionControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionControlView.swift; sourceTree = "<group>"; };
 		BBF35D892C8DFFDC006AEC65 /* PermissionControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PermissionControlView.xib; sourceTree = "<group>"; };
@@ -273,7 +269,6 @@
 		BBDDD7882C8C5DF000D6EF3F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				BBDDD7842C8C5A2C00D6EF3F /* UIViewController+Extensions.swift */,
 				BBF35D842C8DFC92006AEC65 /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
@@ -387,7 +382,6 @@
 			children = (
 				BBB516FF2C98C55D00A080BF /* Permission Controls Container */,
 				BBF35D862C8DFFB0006AEC65 /* Permission Control */,
-				BBF35D822C8DFC4A006AEC65 /* NibView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -498,7 +492,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBF35D632C8CE205006AEC65 /* HeadphonesConnectionSettable.swift in Sources */,
-				BBDDD7852C8C5A2C00D6EF3F /* UIViewController+Extensions.swift in Sources */,
 				BBF35D662C8CF0B0006AEC65 /* SystemVolumeObservable.swift in Sources */,
 				BBB96BBE2CA96EDB00EB20C0 /* LoudnessValuesProvider.swift in Sources */,
 				BBF35D732C8CF2B4006AEC65 /* LoudnessManager.swift in Sources */,
@@ -529,7 +522,6 @@
 				BBC21FE32CA0AF90005901E8 /* LoudnessPreparationViewController.swift in Sources */,
 				BBB96BCA2CA98CF300EB20C0 /* SystemVolumeInterruptionViewController.swift in Sources */,
 				BBF35D882C8DFFC4006AEC65 /* PermissionControlView.swift in Sources */,
-				BBF35D832C8DFC4A006AEC65 /* NibView.swift in Sources */,
 				BBC21FE82CA0B77A005901E8 /* PreparationFlow.swift in Sources */,
 				BBF35D682C8CF106006AEC65 /* SystemVolumeSettable.swift in Sources */,
 				BBB96BC42CA96F3900EB20C0 /* SystemVolumeValuesProvider.swift in Sources */,
