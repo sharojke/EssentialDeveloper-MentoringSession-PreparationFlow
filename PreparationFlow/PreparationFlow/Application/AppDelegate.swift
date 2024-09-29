@@ -119,4 +119,14 @@ private extension AppDelegate {
             permissionControlsContainerView: permissionControlsContainerView()
         )
     }
+    
+    func loudnessInterruptionViewController(
+        onTestAnywayButtonTap: @escaping () -> Void
+    ) -> LoudnessInterruptionViewController {
+        return LoudnessInterruptionComposer.scene(
+            observer: loudnessManager,
+            permissionControlsContainerView: permissionControlsContainerView(),
+            onTestAnywayButtonTap: onTestAnywayButtonTap
+        )
+    }
 }
