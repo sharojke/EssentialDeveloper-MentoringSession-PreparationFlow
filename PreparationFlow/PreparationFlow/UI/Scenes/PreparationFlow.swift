@@ -109,7 +109,7 @@ final class PreparationFlow {
                         self?.showLoudnessInterruption()
                         
                     case .none:
-                        break // TODO: say the current controller that there is no interruption
+                        break // TODO: Notify the current scene that there is no interruptions
                     }
                 }
                 
@@ -125,6 +125,7 @@ final class PreparationFlow {
     }
     
     private func showHeadphonesInterruption() {
+        // TODO: Composition root or MainQueueDispatchDecorator?
         Task { @MainActor [weak self] in
             guard let self else { return }
             
@@ -134,6 +135,7 @@ final class PreparationFlow {
     }
     
     private func showSystemVolumeInterruption() {
+        // TODO: Composition root or MainQueueDispatchDecorator?
         Task { @MainActor [weak self] in
             guard let self else { return }
             
@@ -143,6 +145,7 @@ final class PreparationFlow {
     }
     
     private func showLoudnessInterruption() {
+        // TODO: Composition root or MainQueueDispatchDecorator?
         Task { @MainActor [weak self] in
             guard let self else { return }
             
@@ -155,14 +158,3 @@ final class PreparationFlow {
         }
     }
 }
-
-
-/// ** QUESTIONS:
-
-/// Handle Swift Concurrency correctly
-/// - just look for `Task { @MainActor`. I'm creating `Task` at least twice which is suspicious
-
-/// Starting a new flow:
-/// - where to initialize the flow?
-/// - where to hold the reference to the flow?
-/// - how to remove the prev flow if it is not needed anymore?

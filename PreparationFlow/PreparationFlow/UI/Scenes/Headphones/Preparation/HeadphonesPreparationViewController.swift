@@ -44,7 +44,7 @@ final class HeadphonesPreparationViewController: UIViewController {
     }
     
     func setConnected(_ isConnected: Bool, title: String) {
-        // TODO: Move the threading logic to the composer
+        // TODO: Move to the composer
         Task { @MainActor [weak self] in
             self?.nextButton.isEnabled = isConnected
             self?.headphonesConnectionLabel.text = title

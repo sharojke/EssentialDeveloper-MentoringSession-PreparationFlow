@@ -60,7 +60,7 @@ final class SystemVolumePreparationViewController: UIViewController {
     }
     
     func setSatisfied(_ isSatisfied: Bool, title: String) {
-        // TODO: Move the threading logic to the composer
+        // TODO: Move to the composer
         Task { @MainActor [weak self] in
             self?.nextButton.isEnabled = isSatisfied
             self?.systemVolumeLabel.text = title

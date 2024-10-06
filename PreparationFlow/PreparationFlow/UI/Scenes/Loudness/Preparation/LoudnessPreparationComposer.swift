@@ -11,6 +11,7 @@ enum LoudnessPreparationComposer {
             onPermissionButtonTap: onPermissionButtonTap
         )
         
+        // TODO: Move to the composition root
         Task {
             await set(controller, level: observer.level())
             await observer.add { [weak controller] level in

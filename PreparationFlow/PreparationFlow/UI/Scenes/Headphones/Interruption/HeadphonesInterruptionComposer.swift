@@ -9,6 +9,7 @@ enum HeadphonesInterruptionComposer {
             permissionControlsContainerView: permissionControlsContainerView
         )
         
+        // TODO: Move to the composition root
         Task {
             await set(controller, connected: observer.isConnected())
             await observer.add { [weak controller] isConnected in

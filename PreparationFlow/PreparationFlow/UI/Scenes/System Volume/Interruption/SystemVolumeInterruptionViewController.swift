@@ -33,7 +33,7 @@ final class SystemVolumeInterruptionViewController: UIViewController {
     }
     
     func setTitle(_ title: String) {
-        // TODO: Move the threading logic to the composer
+        // TODO: Move to the composer
         Task { @MainActor [weak self] in
             self?.systemVolumeLabel.text = title
         }

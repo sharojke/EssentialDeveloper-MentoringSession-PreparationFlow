@@ -57,7 +57,7 @@ final class LoudnessPreparationViewController: UIViewController {
     }
     
     func setLoud(_ isLoud: Bool, title: String) {
-        // TODO: Move the threading logic to the composer
+        // TODO: Move to the composer
         Task { @MainActor [weak self] in
             self?.nextButton.isEnabled = !isLoud
             self?.loudnessLabel.text = title
